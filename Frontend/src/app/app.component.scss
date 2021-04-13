@@ -1,0 +1,28 @@
+body{
+    
+    div{
+        display:flex;
+        flex-direction: row;
+        .nav{
+            height:100vh;
+            width: 20vw;
+        }
+        div{
+            display:flex;
+            flex-direction: column;
+            width:80vw;
+            height:100vh;
+
+            .header{
+                height: 10vh;
+            }
+            .profile{
+                background-color: blue;
+                height: auto;
+            }
+           
+        }
+
+    }
+
+}
