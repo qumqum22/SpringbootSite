@@ -1,0 +1,6 @@
+com\rehabilitation\demo\models\Photo.class
+com\rehabilitation\demo\models\Address.class
+com\rehabilitation\demo\RehabilitationWebsiteApplication.class
+com\rehabilitation\demo\repository\VideosRepository.class
+com\rehabilitation\demo\models\Tags.class
+com\rehabilitation\demo\models\UserRights.class
