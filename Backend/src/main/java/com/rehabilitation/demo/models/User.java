@@ -1,9 +1,8 @@
 package com.rehabilitation.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -11,28 +10,61 @@ public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+
+    //@Column(name="name")
     private String name;
+    //@Column(name="lastname")
     private String surname;
-    private String phoneNumber;
+    //@Column(name="profileImg")
+    private String profileImage;
+    //@Column(name="title")
     private String title;
+    //@Column(name="description")
     private String description;
+   // @Column(name="age")
     private Integer age;
+    //@Column(name="gender")
     private String gender;
+    //@Column(name="login")
     private String Login;
+   // @Column(name="password")
     private String Password;
+    //@Column(name="email")
     private String Email;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Phones> phones;
+
+    @OneToMany(mappedBy = "user")
+    private Set<ExternalContacts> externalContacts;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Address> address;
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserRights> userRights;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Videos> videos;
+
+    //@ManyToMany
+    //@JoinTable(
+    //        name = "subscribes_id",
+    //        joinColumns = @JoinColumn(name = "student_id"),
+    //        inverseJoinColumns = @JoinColumn(name = "subscribe_id"))
+    //Set<Subscribes> subscribes_id;
 
     public User()
     {
 
     }
 
-    public User(String name, String surname, String phoneNumber, String title,
+    public User(String name, String surname,String profileImage, String title,
                 String description, Integer age, String gender, String login,
                 String password, String email) {
         this.name = name;
         this.surname = surname;
-        this.phoneNumber = phoneNumber;
+        this.profileImage = profileImage;
         this.title = title;
         this.description = description;
         this.age = age;
@@ -66,12 +98,12 @@ public class User {
         this.surname = surname;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getProfileImage() {
+        return profileImage;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 
     public String getTitle() { return title; }

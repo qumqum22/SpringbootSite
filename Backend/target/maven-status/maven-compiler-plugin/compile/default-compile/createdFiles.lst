@@ -1,6 +1,14 @@
-com\rehabilitation\demo\models\Photo.class
+com\rehabilitation\demo\exception\ResourceNotFoundException.class
+com\rehabilitation\demo\controllers\VideosController.class
+com\rehabilitation\demo\repository\AddressRepository.class
+com\rehabilitation\demo\repository\PhonesRepository.class
 com\rehabilitation\demo\models\Address.class
 com\rehabilitation\demo\RehabilitationWebsiteApplication.class
+com\rehabilitation\demo\models\Subscribes.class
+com\rehabilitation\demo\repository\TagsRepository.class
 com\rehabilitation\demo\repository\VideosRepository.class
+com\rehabilitation\demo\repository\UserRightsRepository.class
+com\rehabilitation\demo\repository\SubscribesRepository.class
 com\rehabilitation\demo\models\Tags.class
+com\rehabilitation\demo\repository\ExternalContactsRepository.class
 com\rehabilitation\demo\models\UserRights.class

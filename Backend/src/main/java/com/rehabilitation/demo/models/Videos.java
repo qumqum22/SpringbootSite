@@ -1,10 +1,8 @@
 package com.rehabilitation.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Videos {
@@ -20,6 +18,14 @@ public class Videos {
     private Long likes;
     private Long dislikes;
     private Long subscribers;
+
+
+        @ManyToOne
+        @JoinColumn(name = "user_id", nullable = false)
+        private User user;
+
+    //    @OneToMany(mappedBy = "videos")
+    //    private Set<Tags> tags;
 
     public Videos(){
 

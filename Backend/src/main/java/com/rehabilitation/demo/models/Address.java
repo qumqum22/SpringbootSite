@@ -1,9 +1,7 @@
 package com.rehabilitation.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 public class Address {
@@ -15,6 +13,10 @@ public class Address {
     private String street;
     private String number;
     private String postalCode;
+
+    @ManyToOne
+//    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     public Address(){
 
