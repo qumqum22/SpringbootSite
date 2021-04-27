@@ -3,15 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
 
-
-const routes: Routes = [
+import {HomeModule } from './home/home.module';
+import {AuthenticationModule} from './authentication/authentication.module';
+export const routes: Routes = [
+{path: '', component:ProfileComponent},
 {path: 'profile', component: ProfileComponent},
 {path: 'settings', component: SettingsComponent},
-{path: '', redirectTo: '/login', pathMatch: 'full' },
+{path: 'login', loadChildren: () => AuthenticationModule},
+{path: 'home', loadChildren: () => HomeModule},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule ]
 })
 export class AppRoutingModule { }
