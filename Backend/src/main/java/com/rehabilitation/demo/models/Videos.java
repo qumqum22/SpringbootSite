@@ -2,7 +2,6 @@ package com.rehabilitation.demo.models;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 public class Videos {
@@ -20,12 +19,6 @@ public class Videos {
     private Long subscribers;
 
 
-        @ManyToOne
-        @JoinColumn(name = "user_id", nullable = false)
-        private User user;
-
-    //    @OneToMany(mappedBy = "videos")
-    //    private Set<Tags> tags;
 
     public Videos(){
 

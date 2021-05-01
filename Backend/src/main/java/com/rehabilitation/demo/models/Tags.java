@@ -11,14 +11,13 @@ public class Tags {
     private String tagName;
 
 
-    @ManyToOne
-//    @JoinColumn(name = "video_id", nullable = false)
-    private Videos videos;
 
 
     public Tags(){
 
     }
+
+
 
     public Tags(String tagName) {
         this.tagName = tagName;

@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VideosController {
 
-    private final VideosRepository repository;
-
     public VideosController(VideosRepository repository) {
-        this.repository = repository;
     }
 }

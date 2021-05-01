@@ -7,14 +7,14 @@ C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\controllers\UserController.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\repository\UserRightsRepository.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\repository\AddressRepository.java
-C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\models\User.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\models\Videos.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\repository\ExternalContactsRepository.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\repository\SubscribesRepository.java
-C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\repository\UserRepository.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\models\Subscribes.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\RehabilitationWebsiteApplication.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\repository\VideosRepository.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\models\ExternalContacts.java
+C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\models\UserData.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\repository\PhonesRepository.java
+C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\repository\UserDataRepository.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\exception\ResourceNotFoundException.java

@@ -11,9 +11,6 @@ public class ExternalContacts {
     private Long id;
     private String link;
 
-    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
 
     public ExternalContacts(){
 

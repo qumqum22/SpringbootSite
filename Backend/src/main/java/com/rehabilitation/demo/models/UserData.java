@@ -1,67 +1,35 @@
 package com.rehabilitation.demo.models;
 
-
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
-public class User {
+public class UserData {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
-    //@Column(name="name")
     private String name;
-    //@Column(name="lastname")
     private String surname;
-    //@Column(name="profileImg")
     private String profileImage;
-    //@Column(name="title")
     private String title;
-    //@Column(name="description")
     private String description;
-   // @Column(name="age")
     private Integer age;
-    //@Column(name="gender")
     private String gender;
-    //@Column(name="login")
-    private String Login;
-   // @Column(name="password")
-    private String Password;
-    //@Column(name="email")
-    private String Email;
+    private String login;
+    private String password;
+    private String email;
 
-    @OneToMany(mappedBy = "user")
-    private Set<Phones> phones;
 
-    @OneToMany(mappedBy = "user")
-    private Set<ExternalContacts> externalContacts;
 
-    @OneToMany(mappedBy = "user")
-    private Set<Address> address;
-
-    @OneToMany(mappedBy = "user")
-    private Set<UserRights> userRights;
-
-    @OneToMany(mappedBy = "user")
-    private Set<Videos> videos;
-
-    //@ManyToMany
-    //@JoinTable(
-    //        name = "subscribes_id",
-    //        joinColumns = @JoinColumn(name = "student_id"),
-    //        inverseJoinColumns = @JoinColumn(name = "subscribe_id"))
-    //Set<Subscribes> subscribes_id;
-
-    public User()
+    public UserData()
     {
 
     }
 
-    public User(String name, String surname,String profileImage, String title,
-                String description, Integer age, String gender, String login,
-                String password, String email) {
+    public UserData(String name, String surname, String profileImage, String title,
+                    String description, Integer age, String gender, String login,
+                    String password, String email) {
         this.name = name;
         this.surname = surname;
         this.profileImage = profileImage;
@@ -69,9 +37,9 @@ public class User {
         this.description = description;
         this.age = age;
         this.gender = gender;
-        Login = login;
-        Password = password;
-        Email = email;
+        this.login = login;
+        this.password = password;
+        this.email = email;
     }
 
     public Long getId() {
@@ -135,26 +103,26 @@ public class User {
     }
 
     public String getLogin() {
-        return Login;
+        return login;
     }
 
     public void setLogin(String login) {
-        Login = login;
+        this.login = login;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 }

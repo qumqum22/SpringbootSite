@@ -14,9 +14,6 @@ public class Address {
     private String number;
     private String postalCode;
 
-    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
 
     public Address(){
 
