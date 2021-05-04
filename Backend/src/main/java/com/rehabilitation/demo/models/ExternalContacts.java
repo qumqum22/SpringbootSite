@@ -11,6 +11,9 @@ public class ExternalContacts {
     private Long id;
     private String link;
 
+    @ManyToOne
+    @JoinColumn(name="user_id", referencedColumnName="id", nullable = false)
+    private UserData userdata;
 
     public ExternalContacts(){
 

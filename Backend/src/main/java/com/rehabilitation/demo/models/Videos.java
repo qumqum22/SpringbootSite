@@ -18,6 +18,9 @@ public class Videos {
     private Long dislikes;
     private Long subscribers;
 
+    @ManyToOne
+    @JoinColumn(name="user_id", referencedColumnName="id", nullable = false)
+    private UserData userdata;
 
 
     public Videos(){

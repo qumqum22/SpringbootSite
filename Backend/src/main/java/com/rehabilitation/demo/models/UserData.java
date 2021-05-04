@@ -1,6 +1,7 @@
 package com.rehabilitation.demo.models;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class UserData {
@@ -20,6 +21,21 @@ public class UserData {
     private String password;
     private String email;
 
+
+    @OneToMany(mappedBy = "userdata")
+    private Set<Phones> phones;
+
+    @OneToMany(mappedBy = "userdata")
+    private Set<ExternalContacts> externalContacts;
+
+    @OneToMany(mappedBy = "userdata")
+    private Set<Address> address;
+
+    @OneToMany(mappedBy = "userdata")
+    private Set<UserRights> userRights;
+
+    @OneToMany(mappedBy = "userdata")
+    private Set<Videos> videos;
 
 
     public UserData()

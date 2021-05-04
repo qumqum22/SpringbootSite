@@ -1,5 +1,6 @@
 com\rehabilitation\demo\repository\UserDataRepository.class
 com\rehabilitation\demo\exception\ResourceNotFoundException.class
+com\rehabilitation\demo\services\UserService.class
 com\rehabilitation\demo\controllers\VideosController.class
 com\rehabilitation\demo\models\UserData.class
 com\rehabilitation\demo\repository\AddressRepository.class

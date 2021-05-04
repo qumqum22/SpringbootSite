@@ -11,6 +11,9 @@ public class UserRights {
     private Long id;
     private String type;
 
+    @ManyToOne
+    @JoinColumn(name="user_id", referencedColumnName="id", nullable = false)
+    private UserData userdata;
 
     public UserRights(){
 

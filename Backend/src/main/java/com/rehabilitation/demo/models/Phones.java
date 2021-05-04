@@ -10,6 +10,9 @@ public class Phones {
     private Long id;
     private String phoneNumber;
 
+    @ManyToOne
+    @JoinColumn(name="user_id", referencedColumnName="id", nullable = false)
+    private UserData userdata;
 
     public Phones(){
 
