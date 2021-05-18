@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 
-//import {HomeComponent} from './home.component'
+import {HomeComponent} from './home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
-
+import {AuthenticationModule} from './../authentication/authentication.module'
 const routes: Routes = [
-    {path: 'profile', component: ProfileComponent},
-    {path: 'settings', component: SettingsComponent},
-    {path: '', redirectTo: '/profile', pathMatch: 'full'},
-    //{path: '', redirectTo: '/home', pathMatch: 'full'},
+  {
+    path: '', component: HomeComponent, 
+    children: [
+      {path: 'profile', component: ProfileComponent},
+      {path: 'settings', component: SettingsComponent},
+      
+    ]
+  },
+  {path: 'login', loadChildren: () => AuthenticationModule},
 ];
 
 @NgModule({

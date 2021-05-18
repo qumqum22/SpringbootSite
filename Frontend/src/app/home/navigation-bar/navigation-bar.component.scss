@@ -1,21 +1,33 @@
 
 body{
-
     flex-direction: row;
-    background: transparent linear-gradient(180deg, #36EF49 0%, #1B7825 100%) 0% 0% no-repeat padding-box;
-
+    // background: transparent linear-gradient(180deg, #36EF49 0%, #1B7825 100%) 0% 0% no-repeat padding-box;
+    background: lightblue;
     align-items: center;
     justify-content: flex-start;
     height:100vh;
-}   
 
-.button{    
-    background: transparent linear-gradient(180deg, #36EF49 0%, #1B7825 100%) 0% 0% no-repeat padding-box;
-    box-shadow: 0px 6px 6px #00000029;
-    border-radius: 25px;
-    opacity: 1;
-    border: none;
-    color: white;
-    margin: 1em;
-    /* line-height: .5em;*/
-}
+    ul{
+        list-style-type: none;
+        
+        .button{    
+            background: transparent linear-gradient(180deg, #36EF49 0%, #1B7825 100%) 0% 0% no-repeat padding-box;
+            box-shadow: 0px 6px 6px #00000029;
+            border-radius: 25px;
+            opacity: 1;
+            border: none;
+            color: white;
+            margin: 1em;
+            text-decoration:none;
+            //line-height: .5em;
+        }
+
+
+        li:last-child{
+            position: absolute;
+            bottom: 2em;
+            width: 100%;
+        }
+
+    }
+}   

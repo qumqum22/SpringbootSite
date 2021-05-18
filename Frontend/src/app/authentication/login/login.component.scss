@@ -33,6 +33,16 @@
             border-radius: 45px;
             opacity: 1;
             
+            input.ng-invalid{
+                border-left-width: 5px;
+                border-right-width: 5px;
+                border-color: red;
+            }
+            
+            .form-group{
+                display:flex;
+                flex-direction: column;
+            }
             .buttons{
                 display: flex;
                 flex-direction: row;
