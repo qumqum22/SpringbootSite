@@ -21,7 +21,12 @@ export class UserService {
         );
     }
 
-    
+    public getUser(id: number):Observable<User> {
+        
+        return this.http.get<User>(`${this.apiServerUrl}/users/${id}`).pipe(
+            tap(console.log)
+        );
+    }
 
     public addUser(user: User):Observable<User> {
         return this.http.post<User>(`${this.apiServerUrl}/users/add`, user);

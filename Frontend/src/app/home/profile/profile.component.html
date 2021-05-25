@@ -13,8 +13,6 @@
             <h1 id="h1-profile">Profile</h1>
 
             <div class="card">
-                <h2>User name + User Surname</h2>
-                <h2>Email</h2>
                 <a href="#"><i class="fa fa-phone"></i> </a>
                 <br>
                 <a href="#"><i class="fa fa-twitter"></i></a> 
@@ -41,6 +39,14 @@
                     <button type="submit" name="change_profile" value="change_profile">Save</button>
                 </div>
             </form>
+
+            <div class="card">
+                <h2>{{user?.name}} {{user?.surname}}</h2>
+                <h2>{{user?.email}}</h2>
+                <h3><i class="fa fa-phone"></i>{{user?.surname}}</h3>
+                <br>
+            </div>
+
         </section>
     </main>
 </div>

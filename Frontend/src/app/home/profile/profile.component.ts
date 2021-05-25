@@ -10,14 +10,14 @@ import { User } from '../../models/user';
 })
 export class ProfileComponent implements OnInit {
 
-  public users: User[] =[];
+  public user: User | undefined;
 
   constructor(private userService: UserService) { }
 
-  public getUsers():void {
-    this.userService.getUsers().subscribe(
-      (response: User[]) => {
-        this.users = response;
+  public getUser():void {
+    this.userService.getUser(2).subscribe(
+      (response: User) => {
+        this.user = response;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     )
   }
   ngOnInit(): void {
-    this.getUsers();
+    this.getUser();
   }
 
 }
