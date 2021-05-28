@@ -10,30 +10,30 @@
         <img src="../../../assets/images/logo.svg">  
     </div>
     <div class="login-container">
-        <form [formGroup]="registerForm" (ngSubmit)="onLogin()" class="login" action="register" method="POST">
+        <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)" class="login">
             <div class="form-group">
-                <input name="email" type="text" formControlName="email" placeholder="email@email.com"/>
+                <input ngModel name="email" type="text" formControlName="email" placeholder="email@email.com"/>
                 <span class="error" *ngIf="email?.invalid && email?.touched" >Input is not valid</span>
             </div>
             <div class="form-group">
-                <input name="password" type="password" formControlName="password" placeholder="password">
+                <input ngModel name="password" type="password" formControlName="password" placeholder="password">
                 <span class="error" *ngIf="password?.invalid && password?.touched"> Password is required.</span>            
             </div>
             <div class="form-group">
-                <input name="confirmPassword" type="password" placeholder="confirm password">
+                <input ngModel name="confirmPassword" type="password" placeholder="confirm password">
             </div>
             <div class="form-group">
-                <input name="name" type="text" placeholder="name">
+                <input ngModel name="name" type="text" placeholder="name">
             </div>
             <div class="form-group">
-                <input name="surname" type="text" placeholder="surname">
+                <input ngModel name="surname" type="text" placeholder="surname">
             </div>
             <div class="form-group">
-                <input name="phone" type="text" placeholder="phone*">
+                <input ngModel name="phone" type="text" placeholder="phone*">
             </div>
             <div class="buttons">
-                <a href="login" class="button">Sign in</a>
-                <a type="submit" href="register" class="button">Create account</a>
+                    <a href="login" class="button">Sign in</a>
+                <a type="submit" href="login" class="button">Create account</a>
             </div>
         </form>
     </div>

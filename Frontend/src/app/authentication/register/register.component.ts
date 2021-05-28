@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-register',
@@ -12,19 +15,25 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('',[Validators.required,Validators.minLength(4)])
 
   })
+  public users: User[]=[];
 
   get email(){return this.registerForm.get('email')}
   get password(){return this.registerForm.get('password')}
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
+  public onRegister(registerForm: NgForm):void {
+    this.userService.registerUser(registerForm.value).subscribe(
+      (response: User) => {
+        console.log(response);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  }
 
   
   ngOnInit(): void {
-  }
-
-  onLogin()
-  {
-    console.warn(this.registerForm.value);
   }
 }

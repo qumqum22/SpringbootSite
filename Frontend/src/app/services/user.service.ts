@@ -28,8 +28,8 @@ export class UserService {
         );
     }
 
-    public addUser(user: User):Observable<User> {
-        return this.http.post<User>(`${this.apiServerUrl}/users/add`, user);
+    public registerUser(user: User):Observable<User> {
+        return this.http.post<User>(`${this.apiServerUrl}/register`, user);
     }
 
     public updateUser(user: User):Observable<User> {
