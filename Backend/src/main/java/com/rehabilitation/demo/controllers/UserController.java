@@ -8,10 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("api/v1/")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
 
     private final UserService userService;
@@ -20,8 +20,6 @@ public class UserController {
         this.userService = userService;
     }
 
-
-
     // getting all expenses
     @GetMapping("/users")
     public List<UserData> all()
@@ -29,24 +27,23 @@ public class UserController {
         return userService.getUsers();
      }
 
-//     @GetMapping("/users/{id}")
-//     public UserData getSingleUser(@PathVariable long id){
-//        return userService.getSingleUser(id);
-//     }
+     @GetMapping("/users/{id}")
+     public UserData getSingleUser(@PathVariable("id") long id) throws ResourceNotFoundException {
+        return userService.getSingleUser(id);
+     }
 
-//    @GetMapping("users/{id}")
-//    public ResponseEntity<UserData> getUserById(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
-//        UserData userData = userDataRepository.findById(userId)
-//                .orElseThrow(() -> new ResourceNotFoundException("UserData not found for this id :: " + userId));
-//        return ResponseEntity.ok().body(userData);
-//    }
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping("/register")
+    public boolean newUser(@RequestBody UserData newUserData)
+    {
+        return userService.save(newUserData);
+    }
+
+    @PutMapping("/profile")
+    public boolean changeData()
+    {
+        return userService.changeProfile();
+    }
 
 
-    // adding new user
-//    @PostMapping("/users")
-//    public UserData newUser(@RequestBody UserData newUserData)
-//    {
-//        // zapisuje uzytkownika do bazy
-//        return userDataRepository.save(newUserData);
-//    }
 }
