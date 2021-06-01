@@ -2,6 +2,12 @@
 
 
     <h1 id="h1-profile">Profiles</h1>
+    <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="md-form mt-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        </div>
+    </form>
+
     <div class ="cards" *ngFor="let user of users">
             <div class="card">
                 <h2>{{user.name}} {{user.surname}}</h2>
@@ -9,5 +15,16 @@
                 <h3><i class="fa fa-phone"></i>{{user.surname}}</h3>
                 <br>
             </div>
-
+            <div class="card">
+                <h2>{{user.name}} {{user.surname}}</h2>
+                <h2>{{user.email}}</h2>
+                <h3><i class="fa fa-phone"></i>{{user.surname}}</h3>
+                <br>
+            </div>
+            <div class="card">
+                <h2>{{user.name}} {{user.surname}}</h2>
+                <h2>{{user.email}}</h2>
+                <h3><i class="fa fa-phone"></i>{{user.surname}}</h3>
+                <br>
+            </div>
     <div>

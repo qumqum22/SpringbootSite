@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('',[Validators.required,Validators.minLength(4)])
 
   })
-  public users: User[]=[];
+  public users: User[] | undefined;
 
   get email(){return this.registerForm.get('email')}
   get password(){return this.registerForm.get('password')}
@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   public onRegister(registerForm: NgForm):void {
+    console.log(registerForm.value);
     this.userService.registerUser(registerForm.value).subscribe(
       (response: User) => {
         console.log(response);
@@ -32,7 +33,6 @@ export class RegisterComponent implements OnInit {
       }
     )
   }
-
   
   ngOnInit(): void {
   }

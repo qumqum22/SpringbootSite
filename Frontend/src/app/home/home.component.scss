@@ -4,20 +4,10 @@ body{
         display:flex;
         flex-direction: row;
         .nav{
-            height:100vh;
-            width: 10vw;
+            width: 15%;
         }
-        div{
-            display:flex;
-            flex-direction: column;
-            width:90vw;
-            height:100vh;
-
-            .header{
-                height: auto;
-            }
-
-           
+        .tab{
+            width:85%;
         }
 
     }

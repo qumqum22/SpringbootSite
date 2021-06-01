@@ -16,7 +16,7 @@ import {HomeComponent} from './home.component';
     NavigationBarComponent, 
     ProfilesGridComponent, 
     ProfileComponent, 
-    SettingsComponent],
+    SettingsComponent,],
   imports: [
     CommonModule,
     HomeRoutingModule,

@@ -11,7 +11,8 @@ import { User } from '../../models/user';
 export class ProfileComponent implements OnInit {
 
   public user: User | undefined;
-
+  public editUser: User | undefined;
+  
   constructor(private userService: UserService) { }
 
   public getUser():void {
@@ -24,6 +25,18 @@ export class ProfileComponent implements OnInit {
       }
     )
   }
+
+  // public onUpdate(user: User):void {
+  //   this.userService.updateUser(user).subscribe(
+  //     (response: User) => {
+  //       console.log(response);
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   )
+  // }
+
   ngOnInit(): void {
     this.getUser();
   }

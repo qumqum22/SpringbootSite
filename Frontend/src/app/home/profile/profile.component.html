@@ -1,55 +1,55 @@
-<!-- <p>profile works!</p> -->
 <!DOCTYPE html>
-
-
 <head>
     <title>PROFILE</title>
 </head>
 
 <body>
-<div class="base-container">
-    <main id="main-container" class="video-container">
-        <section class="video-form">
-            <h1 id="h1-profile">Profile</h1>
+    <div class="profile">
+        <div class="user-info">
 
-            <div class="card">
-                <a href="#"><i class="fa fa-phone"></i> </a>
-                <br>
-                <a href="#"><i class="fa fa-twitter"></i></a> 
-                <a href="#"><i class="fa fa-linkedin"></i></a> 
-                <a href="#"><i class="fa fa-facebook"></i></a>
-            </div>
-
-            <form>
                 <div class="card">
-                    <div class="profile-changes">
-                        <div> New name </div>
-                            <input type="text" name="name">
-                    </div>
-                    <div class="profile-changes">
-                        <div> New surname </div>
-
-                        <input type="text" name="surname">
-
-                    </div>
-                    <div class="profile-changes">
-                        <div> New phone </div>
-                        <input type="text" name="phone">
-                    </div>
-                    <button type="submit" name="change_profile" value="change_profile">Save</button>
+                    <div class="profile-img">
+                        <a href=""><img src="{{user?.profileImg}}" alt="" class="img-fluid rounded-circle w-60"></a>
+                     </div>
+                    <h2>{{user?.name}} {{user?.surname}}</h2>
+                    <p>{{user?.email}}</p>
+                    <a><i class="fa fa-phone"></i>{{user?.surname}}</a>
                 </div>
-            </form>
 
-            <div class="card">
-                <h2>{{user?.name}} {{user?.surname}}</h2>
-                <h2>{{user?.email}}</h2>
-                <h3><i class="fa fa-phone"></i>{{user?.surname}}</h3>
-                <br>
+                <hr>
+                
+                <div class="contact-types">
+                <div class="contacts">
+                    <form>
+                            <div>
+                                <span> New name </span>
+                                    <input type="text" name="name">
+                            </div>
+                            <div>
+                                <span> New surname </span>
+    
+                                <input type="text" name="surname">
+    
+                            </div>
+                            <div>
+                                <span> New phone </span>
+                                <input type="text" name="phone">
+                            </div>
+                            <button type="submit" name="change_profile" value="change_profile">Save</button>
+                    </form>
+                </div>
+
+                <div class="adresses">
+                    <p>adresses</p>
+                </div>
             </div>
-
-        </section>
-    </main>
-</div>
+        </div>
+        <div class="videos-bar">
+            <p>videos bar</p>
+            <!--  w bazie musie zamienic watch na embed mniej wiecej -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Gx4iBLKLVHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
 
 </body>
 
