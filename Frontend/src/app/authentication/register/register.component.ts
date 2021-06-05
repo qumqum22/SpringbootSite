@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { User } from '../../models/user';
 
@@ -20,13 +21,14 @@ export class RegisterComponent implements OnInit {
   get email(){return this.registerForm.get('email')}
   get password(){return this.registerForm.get('password')}
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router:Router) { }
 
   public onRegister(registerForm: NgForm):void {
     console.log(registerForm.value);
     this.userService.registerUser(registerForm.value).subscribe(
       (response: User) => {
         console.log(response);
+        this.router.navigateByUrl('/login');
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

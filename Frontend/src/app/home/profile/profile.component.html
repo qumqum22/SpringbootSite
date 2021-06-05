@@ -5,15 +5,15 @@
 
 <body>
     <div class="profile">
-        <div class="user-info">
+        <div class="user-info" *ngIf="user">
 
                 <div class="card">
-                    <div class="profile-img">
-                        <a href=""><img src="{{user?.profileImg}}" alt="" class="img-fluid rounded-circle w-60"></a>
-                     </div>
+
+                    <img src="{{user.profileImage}}" alt="" class="profile-img">
+
                     <h2>{{user?.name}} {{user?.surname}}</h2>
                     <p>{{user?.email}}</p>
-                    <a><i class="fa fa-phone"></i>{{user?.surname}}</a>
+                    <a><i class="fa fa-phone"></i>{{user?.password}}</a>
                 </div>
 
                 <hr>
@@ -22,32 +22,45 @@
                 <div class="contacts">
                     <form>
                             <div>
-                                <span> New name </span>
+                                <span> Change name </span>
                                     <input type="text" name="name">
                             </div>
                             <div>
-                                <span> New surname </span>
-    
-                                <input type="text" name="surname">
-    
+                                <span> Change surname </span>
+                                    <input type="text" name="surname">
                             </div>
-                            <div>
-                                <span> New phone </span>
-                                <input type="text" name="phone">
-                            </div>
-                            <button type="submit" name="change_profile" value="change_profile">Save</button>
+                            <button type="submit" name="change_name">Save</button>
                     </form>
+                    <form>
+                        <div>
+                            <span> Add phone </span>
+                            <input type="text" name="phone">
+                        </div>
+                        <button type="submit" name="add_phone">Save</button>
+                    </form>
+                    <p> Contact: </p>
+                    <div *ngFor="let phone of phones">
+                        <p> {{phone.phoneNumber}}</p>
+                    </div>
                 </div>
 
                 <div class="adresses">
-                    <p>adresses</p>
+                    <p>About me</p>
                 </div>
             </div>
         </div>
         <div class="videos-bar">
-            <p>videos bar</p>
             <!--  w bazie musie zamienic watch na embed mniej wiecej -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Gx4iBLKLVHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="add-video">
+                
+            </div>
+            <iframe  src="https://www.youtube.com/embed/50ZvMarcQmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe  src="https://www.youtube.com/embed/50ZvMarcQmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <form>
+                <div>
+                    <p> add</p>
+                </div>
+            </form>
         </div>
     </div>
 

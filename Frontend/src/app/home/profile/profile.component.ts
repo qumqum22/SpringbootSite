@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { PhoneService } from 'src/app/services/phone.service';
 import { User } from '../../models/user';
+import { Phone} from '../../models/phone';
 
 @Component({
   selector: 'app-profile',
@@ -10,15 +12,17 @@ import { User } from '../../models/user';
 })
 export class ProfileComponent implements OnInit {
 
-  public user: User | undefined;
-  public editUser: User | undefined;
+  user: User | undefined;
+  editUser: User | undefined;
+  phones: Phone[] = [];
   
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private phoneService: PhoneService) { }
 
   public getUser():void {
-    this.userService.getUser(2).subscribe(
+    this.userService.getUser(1).subscribe(
       (response: User) => {
         this.user = response;
+        //console.log(this.user);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -26,7 +30,19 @@ export class ProfileComponent implements OnInit {
     )
   }
 
-  // public onUpdate(user: User):void {
+  public getPhones():void {
+    this.phoneService.getPhones().subscribe(
+      (response: Phone[]) => {
+        this.phones = response;
+        console.log(this.phones);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  }
+
+  // public onUpdateUser(user: User):void {
   //   this.userService.updateUser(user).subscribe(
   //     (response: User) => {
   //       console.log(response);
@@ -39,6 +55,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    this.getPhones();
   }
 
 }

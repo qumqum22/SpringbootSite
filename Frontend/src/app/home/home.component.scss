@@ -1,15 +1,16 @@
 body{
-    
-    div{
-        display:flex;
-        flex-direction: row;
+    display:flex;
+    flex-direction: row;
         .nav{
+            margin: 0;
             width: 15%;
+            height: 100%;
         }
         .tab{
+            margin: 0;
             width:85%;
+            height: 100%;
         }
 
-    }
 
 }

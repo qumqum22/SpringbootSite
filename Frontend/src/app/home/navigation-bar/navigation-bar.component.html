@@ -3,49 +3,60 @@
 </head>
 
 <body>
-    <h1> {{title}} </h1>
     <div id="my-nav" class="sidenav open-nav">
         <!-- <a href="javascript:void(0)" class="closebtn" id="closebtn" onclick="closeNav()">&times;</a> -->
         <ul>
             <li>
-                <a href="profile" class="button">
+                <img class="logo" src="../../../assets/images/logo.svg"> 
+            </li>
+            <li>
+                <div class="button">
+                <a href="profile" class="nav-text">
                     <i class="fas fa-user"></i>
                     Profile
                 </a>
+                </div>
             </li>
 
             <li>
-                <a href="profiles" class="button">
-                    <i class="fas fa-user-md"></i>
-                    Profiles
-                </a>
+                <div class="button">
+                    <a href="profiles" class="nav-text" >
+                        <i class="fas fa-user-md"></i>
+                        Profiles
+                    </a>
+                </div>
             </li>
             <li>
-                <a href="#" class="button">
+                <div class="button">
+                <a href="#" class="nav-text">
                     <i class="fas fa-envelope"></i>
                     Messages
                 </a>
+            </div>
             </li>
             <li>
-                <a href="#" class="button">
+                <div class="button">
+                <a href="#" class="nav-text">
                     <i class="fas fa-flag"></i>
                     Alerts
                 </a>
+                </div>
             </li>
     
             <li>
-                <a href="settings" class="button">
+                <div class="button">
+                <a href="settings" class="nav-text">
                     <i class="fas fa-flag"></i>
                     Settings
                 </a>
-            </li>
-
-            <li>
-                <!-- <a (click)=goToLoginPage() class="button"> -->
-                <a href="login" class="button" >
-                    Sign in
-                </a>
+            </div>
             </li>
         </ul>
+        <div class="button">
+            <a href="login" class="nav-text">
+                <i class="fas fa-flag"></i>
+                Sign in
+            </a>
+        </div>
     </div>
 </body>
