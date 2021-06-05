@@ -1,8 +1,9 @@
 package com.rehabilitation.demo.controllers;
 
 import com.rehabilitation.demo.exception.ResourceNotFoundException;
+import com.rehabilitation.demo.models.Phones;
 import com.rehabilitation.demo.models.UserData;
-import com.rehabilitation.demo.repository.UserDataRepository;
+import com.rehabilitation.demo.services.PhonesService;
 import com.rehabilitation.demo.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,11 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final PhonesService phonesService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PhonesService phonesService) {
         this.userService = userService;
+        this.phonesService = phonesService;
     }
 
     // getting all expenses
@@ -26,6 +29,9 @@ public class UserController {
     {
         return userService.getUsers();
      }
+
+     @GetMapping("/phones")
+     public List<Phones> allPhones() {return phonesService.getPhones();}
 
      @GetMapping("/users/{id}")
      public UserData getSingleUser(@PathVariable("id") long id) throws ResourceNotFoundException {
@@ -45,5 +51,9 @@ public class UserController {
         return userService.changeProfile();
     }
 
-
+    @DeleteMapping("settings/delete/{id}")
+    public void deleteUser(@PathVariable("id") long id)
+    {
+        userService.deleteUser(id);
+    }
 }

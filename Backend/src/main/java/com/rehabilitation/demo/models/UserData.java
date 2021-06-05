@@ -1,5 +1,7 @@
 package com.rehabilitation.demo.models;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class UserData {
 
     private String name;
     private String surname;
+    @Value(value = "${profileImage:https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg}")
     private String profileImage;
     private String title;
     private String description;
@@ -24,6 +27,8 @@ public class UserData {
 
     @OneToMany(mappedBy = "userdata")
     private Set<Phones> phones;
+
+
 
     @OneToMany(mappedBy = "userdata")
     private Set<ExternalContacts> externalContacts;
@@ -58,6 +63,13 @@ public class UserData {
         this.email = email;
     }
 
+    public void setPhones(Set<Phones> phones) {
+        this.phones = phones;
+    }
+
+    public void addPhone(Phones phone) {
+        this.phones.add(phone);
+    }
     public Long getId() {
         return id;
     }

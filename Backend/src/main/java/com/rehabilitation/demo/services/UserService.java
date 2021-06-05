@@ -31,11 +31,16 @@ public class UserService {
         if(newUserData.getPassword().length() < 6) {
             return false;
         }
+        newUserData.setProfileImage("https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg");
         this.userDataRepository.save(newUserData);
         return true;
     }
 
     public boolean changeProfile() {
         return true;
+    }
+
+    public void deleteUser(long id) {
+        userDataRepository.deleteById(id);
     }
 }

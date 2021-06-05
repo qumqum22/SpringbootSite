@@ -3,6 +3,7 @@ com\rehabilitation\demo\models\UserData.class
 com\rehabilitation\demo\repository\PhonesRepository.class
 com\rehabilitation\demo\models\Address.class
 com\rehabilitation\demo\repository\VideosRepository.class
+com\rehabilitation\demo\services\PhonesService.class
 com\rehabilitation\demo\models\Tags.class
 com\rehabilitation\demo\repository\ExternalContactsRepository.class
 com\rehabilitation\demo\exception\ResourceNotFoundException.class

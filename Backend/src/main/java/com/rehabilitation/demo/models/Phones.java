@@ -18,8 +18,9 @@ public class Phones {
 
     }
 
-    public Phones(String phoneNumber) {
+    public Phones(String phoneNumber, UserData userdata) {
         this.phoneNumber = phoneNumber;
+        this.userdata = userdata;
     }
 
     public Long getId() {
