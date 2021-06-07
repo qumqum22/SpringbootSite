@@ -9,40 +9,55 @@ body{
     height:100vh;
     width: 100%;
 
-    .logo{
-        margin:auto;
-        height: 10%;
-    }
-
     ul{
+        .logo{
+            height: 10%;
+            width:50%;
+        }
+
         list-style-type: none;
         text-align: center;
         width: 100%;
     
-        .button{    
-            background: transparent linear-gradient(180deg, #36EF49 0%, #1B7825 100%) 0% 0% no-repeat padding-box;
-            box-shadow: 0px 6px 6px #00000029;
-            border-radius: 2em;
-            opacity: 1;
-            width: 45%;
-        }
-        .nav-text
-        {
-            text-decoration:none;
-            border: none;
-            color: white;
-        }
-
         li{
             padding-bottom: 1em;
         }
-        
+
+        li:last-child{
+            position:absolute;
+            bottom: 2em;;
+            width: 15%;
+        }
+
+        .sign-in{
+        position: absolute;
+        }
+
+        div{
+            .nav-text
+            {
+                text-decoration:none;
+                border: none;
+                color: white;
+            }
+        }
     }
 }   
+.button{    
+    background: transparent linear-gradient(180deg, #36EF49 0%, #1B7825 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 6px #00000029;
+    border-radius: 2em;
+    opacity: 1;
+    width: 45%;
 
+    .sign-in{
+        text-align: center;
+    }
+}
 
 .sidenav{
     display:flex;
     flex-direction: column;
     justify-content: space-between;
 }
+

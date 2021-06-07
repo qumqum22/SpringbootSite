@@ -39,4 +39,8 @@ export class UserService {
     public deleteUser(userId: number): Observable<void> {
         return this.http.delete<void>(`${this.apiServerUrl}/users/delete/${userId}`);
     }
+    
+//     public addPhone(userId: number):Observable<User> {
+//         return this.http.post<User>(`${this.apiServerUrl}/user/add/phone`, user);
+// }
 }

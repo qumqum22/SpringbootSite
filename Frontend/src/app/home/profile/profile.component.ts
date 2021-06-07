@@ -42,6 +42,29 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+    public deletePhone(phoneId: number):void {
+      this.phoneService.deletePhone(phoneId).subscribe(
+        (response: void) => {
+          console.log(response);
+          this.getPhones();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      )
+    }
+
+    // public addPhone(userId: number, phone: number):void {
+    //   this.userService.addPhone(userId).subscribe(
+    //     (response: User) => {
+    //       console.log(response);
+    //       this.getPhones();
+    //     },
+    //     (error: HttpErrorResponse) => {
+    //       alert(error.message);
+    //     }
+    //   )
+    // }
   // public onUpdateUser(user: User):void {
   //   this.userService.updateUser(user).subscribe(
   //     (response: User) => {

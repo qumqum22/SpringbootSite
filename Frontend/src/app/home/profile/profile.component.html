@@ -7,59 +7,46 @@
     <div class="profile">
         <div class="user-info" *ngIf="user">
 
-                <div class="card">
+            <div class="card">
 
-                    <img src="{{user.profileImage}}" alt="" class="profile-img">
+                <img src="{{user.profileImage}}" alt="" class="profile-img">
 
-                    <h2>{{user?.name}} {{user?.surname}}</h2>
-                    <p>{{user?.email}}</p>
-                    <a><i class="fa fa-phone"></i>{{user?.password}}</a>
-                </div>
+                <h2>{{user?.name}} {{user?.surname}}</h2>
+                <p>{{user?.email}}</p>
+                <a><i class="fa fa-phone"></i>{{user?.password}}</a>
+            </div>
 
-                <hr>
-                
-                <div class="contact-types">
+            <hr>
+            
+            <div class="contact-types">
                 <div class="contacts">
                     <form>
                             <div>
-                                <span> Change name </span>
-                                    <input type="text" name="name">
+                                <input type="text" name="name" placeholder="name">
                             </div>
                             <div>
-                                <span> Change surname </span>
-                                    <input type="text" name="surname">
+                                <input type="text" name="surname" placeholder="surname">
                             </div>
                             <button type="submit" name="change_name">Save</button>
                     </form>
-                    <form>
-                        <div>
-                            <span> Add phone </span>
-                            <input type="text" name="phone">
-                        </div>
-                        <button type="submit" name="add_phone">Save</button>
-                    </form>
                     <p> Contact: </p>
-                    <div *ngFor="let phone of phones">
-                        <p> {{phone.phoneNumber}}</p>
-                    </div>
-                </div>
+                    <p *ngFor="let phone of phones"> {{phone.phoneNumber}} 
+                        <button class="deleteButton" (click)="deletePhone(phone.id)">X</button>
+                    </p>
 
+                </div>
+                
                 <div class="adresses">
                     <p>About me</p>
                 </div>
             </div>
         </div>
         <div class="videos-bar">
-            <!--  w bazie musie zamienic watch na embed mniej wiecej -->
-            <div class="add-video">
-                
-            </div>
+            <!--  w bazie musze zamienic watch na embed mniej wiecej -->
             <iframe  src="https://www.youtube.com/embed/50ZvMarcQmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <iframe  src="https://www.youtube.com/embed/50ZvMarcQmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <form>
-                <div>
                     <p> add</p>
-                </div>
             </form>
         </div>
     </div>

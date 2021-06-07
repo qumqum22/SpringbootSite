@@ -21,4 +21,7 @@ export class PhoneService {
         tap(console.log)
     );
 }
+  public deletePhone(phoneId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/phones/delete/${phoneId}`);
+  }
 }
