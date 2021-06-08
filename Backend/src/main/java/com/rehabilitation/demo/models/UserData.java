@@ -28,8 +28,6 @@ public class UserData {
     @OneToMany(mappedBy = "userdata")
     private Set<Phones> phones;
 
-
-
     @OneToMany(mappedBy = "userdata")
     private Set<ExternalContacts> externalContacts;
 

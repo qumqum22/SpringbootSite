@@ -15,6 +15,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
 
+
     private final UserService userService;
     private final PhonesService phonesService;
 
@@ -30,8 +31,6 @@ public class UserController {
         return userService.getUsers();
      }
 
-     @GetMapping("/phones")
-     public List<Phones> allPhones() {return phonesService.getPhones();}
 
      @GetMapping("/users/{id}")
      public UserData getSingleUser(@PathVariable("id") long id) throws ResourceNotFoundException {
@@ -55,5 +54,24 @@ public class UserController {
     public void deleteUser(@PathVariable("id") long id)
     {
         userService.deleteUser(id);
+    }
+
+
+    // User's phones actions.
+
+    @GetMapping("/phones")
+    public List<Phones> allPhones() {return phonesService.getPhones();}
+
+    @DeleteMapping("phones/delete/{id}")
+    public void deletePhone(@PathVariable("id") long id)
+    {
+        phonesService.deletePhone(id);
+    }
+
+    @PostMapping("/phones/add/{id}")
+    public void addPhone(@PathVariable("id") UserData id, @RequestBody Phones phoneNumber)
+    {
+        Phones phone = new Phones(phoneNumber.getPhoneNumber(), id);
+        phonesService.addPhone(phone);
     }
 }

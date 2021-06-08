@@ -19,12 +19,20 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(UserDataRepository userDataRepository, PhonesRepository phonesRepository)
     {
         return args-> {
-            UserData user1 = new UserData("Piotr", "Pierwszy","https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg","inż.",
+            UserData user1 = new UserData("Piotr", "Pierwszy",null,"inż.",
                     "ops",22,"Male","username", "password","abra@abra.pl");
         log.info("Preolading " + userDataRepository.save(user1));
-        log.info("Preolading " + userDataRepository.save(new UserData("Anna", "Druga","https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg","inż.",
+        log.info("Preolading " + userDataRepository.save(new UserData("Anna", "Druga","https://cdn.wallpapersafari.com/95/5/3rRDsg.jpg","inż.",
                 "ops",22,"Male","username123","passowordpl", "mail@123")));
         log.info("Preolading " + phonesRepository.save(new Phones("999999999", user1)));
+        log.info("Preolading " + phonesRepository.save(new Phones("956478659", user1)));
+        log.info("Preolading " + phonesRepository.save(new Phones("456478659", user1)));
+            log.info("Preolading " + phonesRepository.save(new Phones("999999999", user1)));
+            log.info("Preolading " + phonesRepository.save(new Phones("956478659", user1)));
+            log.info("Preolading " + phonesRepository.save(new Phones("456478659", user1)));
+            log.info("Preolading " + phonesRepository.save(new Phones("999999999", user1)));
+            log.info("Preolading " + phonesRepository.save(new Phones("956478659", user1)));
+            log.info("Preolading " + phonesRepository.save(new Phones("456478659", user1)));
         };
     }
 }
