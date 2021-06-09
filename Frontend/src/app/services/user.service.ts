@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -9,6 +10,8 @@ import { User } from '../models/user';
     providedIn: 'root'
 })
 export class UserService {
+
+
     private apiServerUrl = environment.apiBaseUrl;
 
     constructor(private http:HttpClient) {
@@ -39,8 +42,8 @@ export class UserService {
     public deleteUser(userId: number): Observable<void> {
         return this.http.delete<void>(`${this.apiServerUrl}/users/delete/${userId}`);
     }
-    
-//     public addPhone(userId: number):Observable<User> {
-//         return this.http.post<User>(`${this.apiServerUrl}/user/add/phone`, user);
-// }
+
+    // public editDescription(userDesc: string):Observable<User> {
+    //     return this.http.put<User>(`${this.apiServerUrl}/users/edit`, userDesc);
+    // }
 }

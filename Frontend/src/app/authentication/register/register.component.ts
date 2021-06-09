@@ -11,12 +11,13 @@ import { User } from '../../models/user';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  
   registerForm = new FormGroup({
     email: new FormControl('',[Validators.required,Validators.email]),
     password: new FormControl('',[Validators.required,Validators.minLength(4)])
 
   })
-  public users: User[] | undefined;
+  public users: User[];
 
   get email(){return this.registerForm.get('email')}
   get password(){return this.registerForm.get('password')}

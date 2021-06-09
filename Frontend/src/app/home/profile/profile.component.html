@@ -1,43 +1,46 @@
-<!DOCTYPE html>
-<head>
-    <title>PROFILE</title>
-</head>
 
 <body>
-    <div class="profile">
+    <div class="profile" *ngIf="user">
         <div class="user-info" *ngIf="user">
 
             <div class="card">
 
-                <img src="{{user.profileImage}}" alt="" class="profile-img">
+                <img *ngIf="user.profileImage" src="{{user.profileImage}}" alt="" class="profile-img">
+                <img *ngIf="!user.profileImage" src="../../../assets/images/default-profile.jpg" alt="..." class="profile-img">
 
-                <h2>{{user?.name}} {{user?.surname}}</h2>
-                <p>{{user?.email}}</p>
-                <a><i class="fa fa-phone"></i>{{user?.password}}</a>
+                <h2>{{user?.title}} {{user?.name}} {{user?.surname}}</h2>
+                <input [(ngModel)]="signature">
+                <button (click)="updateUser()">save</button>
+                
             </div>
 
             <hr>
             
             <div class="contact-types">
                 <div class="contacts">
-                    <form>
-                            <div>
-                                <input type="text" name="name" placeholder="name">
-                            </div>
-                            <div>
-                                <input type="text" name="surname" placeholder="surname">
-                            </div>
-                            <button type="submit" name="change_name">Save</button>
+                    
+                    <p> Phones: </p>
+                    <div class="phones">
+                        <p *ngFor="let phone of phones"> {{phone.phoneNumber}} 
+                            <button class="deleteButton" (click)="deletePhone(phone.id)">X</button>
+                        </p>
+                    </div>
+                
+                    <form #addPhoneForm="ngForm" (ngSubmit)="addPhone(addPhoneForm)" >
+                        <div class="addPhone">
+                            <input ngModel name="phoneNumber" type="number" placeholder="phone number">
+                            <button type="submit" name="add_phone" class="addButton">+</button>
+                        </div>
                     </form>
-                    <p> Contact: </p>
-                    <p *ngFor="let phone of phones"> {{phone.phoneNumber}} 
-                        <button class="deleteButton" (click)="deletePhone(phone.id)">X</button>
-                    </p>
-
                 </div>
                 
                 <div class="adresses">
-                    <p>About me</p>
+                    <P>Description: </P>
+                    <p>{{user.description}}</p>
+                    <!-- <form #editDescriptionForm="ngForm" (ngSubmit)="editDescription(editDescriptionForm)" >
+                        <input ngModel name="description" type="text">
+                        <button type=submit class="editButton" name="edit_description">edit</button>
+                    </form> -->
                 </div>
             </div>
         </div>

@@ -1,6 +1,5 @@
 
-body{
-
+.main{
     flex-direction: row;
     // background: transparent linear-gradient(180deg, #36EF49 0%, #1B7825 100%) 0% 0% no-repeat padding-box;
     background: lightblue;
@@ -8,17 +7,23 @@ body{
     justify-content: flex-start;
     height:100vh;
     width: 100%;
+    
+
 
     ul{
-        .logo{
-            height: 10%;
-            width:50%;
-        }
-
         list-style-type: none;
         text-align: center;
+
         width: 100%;
-    
+        margin: 0;
+        padding: 0;
+        
+        .logo{
+            width:40%;
+            margin:auto;
+            margin-top:1em;
+        }
+
         li{
             padding-bottom: 1em;
         }

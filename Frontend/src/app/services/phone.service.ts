@@ -16,7 +16,6 @@ export class PhoneService {
   constructor(private http:HttpClient) { }
 
   public getPhones():Observable<Phone[]> {
-        
     return this.http.get<Phone[]>(`${this.apiServerUrl}/phones`).pipe(
         tap(console.log)
     );
@@ -24,4 +23,8 @@ export class PhoneService {
   public deletePhone(phoneId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/phones/delete/${phoneId}`);
   }
+
+  public addPhone(phone: Phone, user_id:number):Observable<Phone> {
+    return this.http.post<Phone>(`${this.apiServerUrl}/phones/add/${user_id}`, phone);
+}
 }

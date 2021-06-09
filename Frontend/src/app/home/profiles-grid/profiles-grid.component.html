@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<head>
-    <title>PROFILES</title>
-</head>
-
-    
+   
 <div class="page">
-        <h1 id="h1-profile">Profiles</h1>
-        <form class="form-inline waves-light" mdbWavesEffect>
-            <div class="md-form mt-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            </div>
-        </form>
+        <div class ="searchbar">
+            <h1 id="h1-profile">Profiles</h1>
+            <form class="form-inline waves-light" mdbWavesEffect>
+                <div class="md-form mt-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                </div>
+            </form>
+        </div>
 
         <div class ="cards" >
                 <div class="card" *ngFor="let user of users">
-                    <img src="{{user.profileImage}}" alt="" >
-                    <h2>{{user.id}} {{user.name}} {{user.surname}}</h2>
+                    <img *ngIf="user.profileImage" src="{{user.profileImage}}" alt="" class="profile-img">
+                    <img *ngIf="!user.profileImage" src="../../../assets/images/default-profile.jpg" alt="..." class="profile-img">
+                    <h2>{{user.title}} {{user.name}} {{user.surname}}</h2>
                     <h2>{{user.email}}</h2>
-                    <h3><i class="fa fa-phone"></i>{{user.surname}}</h3>
-                    <button (click)="onSelect(user)" > Go to profile </button>
+                    <h3><i class="fa fa-phone"></i>{{user.description}}</h3>
+                    <button class="yellowButton" (click)="onSelect(user)" > Visit me --> </button>
                 </div>
-                
         <div>
 </div>

@@ -27,6 +27,7 @@
 
             .profile-img{
                 margin-top: 1em;
+                max-width: 60%;
             }
             a{
                 text-decoration: none;
@@ -51,12 +52,31 @@
 
                     padding-left:1em;
 
-                .deleteButton{    
-                    background: red;
-                    box-shadow: 0px 6px 6px #00000029;
-                    border-radius: 2em;
-                    opacity: 1;
+                .phones{
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+
+                    p{
+                        margin:0;
+                    }
+                    .deleteButton{    
+                        background: red;
+                        box-shadow: 0px 6px 6px #00000029;
+                        border-radius: 2em;
+                        opacity: 1;
+                    }
                 }
+                form{
+                    .addPhone{
+                        .addButton{
+                            background: lightgreen;
+                            box-shadow: 0px 6px 6px #00000029;
+                            border-radius: 2em;
+                            opacity: 1;
+                        }
+                    }
+                }
+
             }
 
 

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
     AppRoutingModule,
     RouterModule, 
     HomeModule,
-    AuthenticationModule
+    AuthenticationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
