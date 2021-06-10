@@ -9,8 +9,10 @@
                 <img *ngIf="!user.profileImage" src="../../../assets/images/default-profile.jpg" alt="..." class="profile-img">
 
                 <h2>{{user?.title}} {{user?.name}} {{user?.surname}}</h2>
-                <input [(ngModel)]="signature">
-                <button (click)="updateUser()">save</button>
+                <input [(ngModel)]="titleField">
+                <input [(ngModel)]="nameField">
+                <input [(ngModel)]="surnameField">
+                <button (click)="updateUser()" class="saveButton">save</button>
                 
             </div>
 
