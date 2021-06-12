@@ -33,7 +33,7 @@ public class UserController {
 
 
      @GetMapping("/users/{id}")
-     public UserData getSingleUser(@PathVariable("id") long id) throws ResourceNotFoundException {
+     public UserData getSingleUser(@PathVariable("id") long id){
         return userService.getSingleUser(id);
      }
 
@@ -44,11 +44,12 @@ public class UserController {
         return userService.save(newUserData);
     }
 
-    @PutMapping("/profile")
-    public boolean changeData()
+    @PutMapping("/users/update")
+    public boolean changeData(@RequestBody UserData newUserData)
     {
-        return userService.changeProfile();
+        return userService.updateProfile(newUserData);
     }
+
 
     @DeleteMapping("settings/delete/{id}")
     public void deleteUser(@PathVariable("id") long id)

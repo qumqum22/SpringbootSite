@@ -9,6 +9,7 @@ com\rehabilitation\demo\repository\ExternalContactsRepository.class
 com\rehabilitation\demo\exception\ResourceNotFoundException.class
 com\rehabilitation\demo\services\UserService.class
 com\rehabilitation\demo\controllers\VideosController.class
+com\rehabilitation\demo\LoadDatabase.class
 com\rehabilitation\demo\repository\AddressRepository.class
 com\rehabilitation\demo\RehabilitationWebsiteApplication.class
 com\rehabilitation\demo\models\Subscribes.class

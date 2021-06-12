@@ -2,9 +2,9 @@ package com.rehabilitation.demo.services;
 
 import com.rehabilitation.demo.models.UserData;
 import com.rehabilitation.demo.repository.UserDataRepository;
-import com.rehabilitation.demo.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -20,13 +20,15 @@ public class UserService {
         return userDataRepository.findAll();
     }
 
-    public UserData getSingleUser(long id) throws ResourceNotFoundException {
-        return userDataRepository.findUserDataById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User by id " + id + " was not found"));
+    public UserData getSingleUser(long id) {
+        return userDataRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
     }
 
     public boolean save(UserData newUserData) {
         if(!newUserData.getEmail().contains("@"))
+            return false;
+        if(!newUserData.getEmail().contains("."))
             return false;
         if(newUserData.getPassword().length() < 6) {
             return false;
@@ -36,8 +38,17 @@ public class UserService {
         return true;
     }
 
-    public boolean changeProfile() {
-        return true;
+    public boolean updateProfile(UserData oldUserData) {
+        UserData updatedUser = userDataRepository.findUserDataById(oldUserData.getId());
+        updatedUser.setName(oldUserData.getName());
+        updatedUser.setSurname(oldUserData.getSurname());
+        updatedUser.setProfileImage(oldUserData.getProfileImage());
+        updatedUser.setTitle(oldUserData.getTitle());
+        updatedUser.setDescription(oldUserData.getDescription());
+        updatedUser.setAge(oldUserData.getAge());
+        updatedUser.setGender(oldUserData.getGender());
+        userDataRepository.save(updatedUser);
+    return true;
     }
 
     public void deleteUser(long id) {

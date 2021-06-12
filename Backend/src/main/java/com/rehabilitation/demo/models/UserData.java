@@ -1,5 +1,6 @@
 package com.rehabilitation.demo.models;
 
+import com.rehabilitation.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
@@ -151,4 +152,5 @@ public class UserData {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }

@@ -1,7 +1,6 @@
 package com.rehabilitation.demo.services;
 
 import com.rehabilitation.demo.models.Phones;
-import com.rehabilitation.demo.models.UserData;
 import com.rehabilitation.demo.repository.PhonesRepository;
 import org.springframework.stereotype.Service;
 
