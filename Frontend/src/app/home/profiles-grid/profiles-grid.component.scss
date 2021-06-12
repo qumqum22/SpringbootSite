@@ -1,8 +1,4 @@
-.page
-{
-    background-image: url("../../../assets/images/physio-background.png");
-    background-size: contain;
-    height: 100%;
+
     .searchbar{
         height:10vh;
         h1{
@@ -26,11 +22,12 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         background-color: rgba(255,0,0,0.5);
         
-        min-width: 250px;
+        max-width: 25vw;
         margin: 5vh auto;
         text-align: center;
         border-style:solid;
         border-radius: 1em;
+        
 
         .profile-img{
             margin-top: 1em;
@@ -48,5 +45,4 @@
         margin-block-start: 0.2em;
         margin-block-end: 0.5em;
     }
-}
 

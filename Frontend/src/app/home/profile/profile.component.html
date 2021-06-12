@@ -38,11 +38,8 @@
                 
                 <div class="adresses">
                     <P>Description: </P>
-                    <p>{{user.description}}</p>
-                    <!-- <form #editDescriptionForm="ngForm" (ngSubmit)="editDescription(editDescriptionForm)" >
-                        <input ngModel name="description" type="text">
-                        <button type=submit class="editButton" name="edit_description">edit</button>
-                    </form> -->
+                    <input [(ngModel)]="descriptionField">
+                    <button (click)="updateUser()" class="saveButton">save</button>
                 </div>
             </div>
         </div>

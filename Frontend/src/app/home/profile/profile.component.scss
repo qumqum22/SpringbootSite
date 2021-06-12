@@ -5,8 +5,12 @@
     height: 100%;
     width: 100%;
 
-    background-image: url("../../../assets/images/physio-background.png");
-    background-size: contain;
+    .saveButton{
+        background: lightblue;
+        box-shadow: 0px 6px 6px #00000029;
+        border-radius: 2em;
+        opacity: 1;
+    }
 
     .user-info{
         height: 70%;
@@ -33,13 +37,6 @@
                 text-decoration: none;
                 font-size: 22px;
             }
-
-            .saveButton{
-                background: lightblue;
-                box-shadow: 0px 6px 6px #00000029;
-                border-radius: 2em;
-                opacity: 1;
-            }
         }
 
         .contact-types{
@@ -47,7 +44,13 @@
             margin-left:0%;
             height: 90%;
             width: 45%;
-
+            .adresses{
+                input{
+                    text-align: justify;
+                    width: 37vw;
+                    height: 15vh;
+                }
+            }
             .contacts, .adresses{
                 margin:auto;
                 margin-top: 1em;

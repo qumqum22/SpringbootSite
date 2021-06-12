@@ -19,9 +19,7 @@ export class UserService {
 
     public getUsers():Observable<User[]> {
         
-        return this.http.get<User[]>(`${this.apiServerUrl}/users`).pipe(
-            tap(console.log)
-        );
+        return this.http.get<User[]>(`${this.apiServerUrl}/users`);
     }
 
     public getUser(id: number):Observable<User> {

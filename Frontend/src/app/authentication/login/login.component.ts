@@ -9,17 +9,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor() { }
-
-  hello(): string {
-    return "Witaj tutaj.";
-  }
   
   ngOnInit(): void {
-  }
-
-  @Input() event:any
-  handleLogInkMe()
-  {
-    console.log('logged in!');
   }
 }

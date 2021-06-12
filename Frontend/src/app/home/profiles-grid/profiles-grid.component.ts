@@ -16,12 +16,7 @@ export class ProfilesGridComponent implements OnInit {
 
   public getUsers():void {
     this.userService.getUsers().subscribe(
-      (response: User[]) => {
-        this.users = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
+      (data => this.users = data)
     )
   }
   ngOnInit(): void {

@@ -15,13 +15,11 @@ export class ProfileComponent implements OnInit {
 
   currentUser = 1;
   user: User;
-  editUser: User;
   phones: Phone[];
   titleField: string ="";
   nameField:string = "";
   surnameField: string = "";
-
-
+  descriptionField: string = "";
 
     constructor(private userService: UserService, private phoneService: PhoneService) { }
 
@@ -32,75 +30,54 @@ export class ProfileComponent implements OnInit {
 
     getUser():void {
       this.userService.getUser(this.currentUser).subscribe(
-        (response: User) => {
+        (response) => {
           this.user = response;
           this.getSignature();
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      )
-    }
+        })}
 
     getSignature(){
     this.titleField = this.user.title;
     this.nameField = this.user.name;
     this.surnameField = this.user.surname;
+    this.descriptionField = this.user.description;
   }
+
+    private toTitleCase(name: string): string{
+      return `${name[0].toUpperCase()}${name.substr(1).toLowerCase()}`;
+    }
+
     updateUser():void{
       this.user.title = this.titleField;
-      this.user.name = this.nameField;
-      this.user.surname = this.surnameField;
-      console.log(this.user);
+      if(this.nameField != "")
+        this.user.name = this.toTitleCase(this.nameField);
+      if(this.surnameField != "")
+        this.user.surname = this.toTitleCase(this.surnameField);
+      if(this.descriptionField != "")
+        this.user.description = this.descriptionField;
+
       this.userService.updateUser(this.user).subscribe(
-        (response: User) => {
-          console.log(response);
-          this.getPhones();
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      );
-    }
+        (response) => {
+        this.getPhones();
+        alert("Profile updated.")})
+      }
 
 
     deletePhone(phoneId: number):void {
       this.phoneService.deletePhone(phoneId).subscribe(
-        (response: void) => {
-          console.log(response);
-          this.getPhones();
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      )
-    }
+        (response) => this.getPhones())
+      }
 
       // get user's phones, powinno byc zalezne od id uzytkownika
-  getPhones():void {
+    getPhones():void {
     this.phoneService.getPhones().subscribe(
-      (response: Phone[]) => {
-        this.phones = response;
-        console.log(this.phones);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
-  }
+      (response) => this.phones = response)
+    }
 
     addPhone(addPhoneForm: NgForm):void {
       console.log(addPhoneForm.value);
       this.phoneService.addPhone(addPhoneForm.value, this.user.id).subscribe(
-        (response: Phone) => {
-          console.log(response);
-          this.getPhones();
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      )
-    }
+        (response) =>this.getPhones())
+      }
 
 
 }

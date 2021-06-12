@@ -27,14 +27,11 @@ export class RegisterComponent implements OnInit {
   public onRegister(registerForm: NgForm):void {
     console.log(registerForm.value);
     this.userService.registerUser(registerForm.value).subscribe(
-      (response: User) => {
-        console.log(response);
-        this.router.navigateByUrl('/login');
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
+      (data => {
+        console.log(data);
+        if(data.id >= 1)
+          this.router.navigateByUrl('/login');
+      }));
   }
   
   ngOnInit(): void {
