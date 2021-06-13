@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import {HomeComponent} from './home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ForeignProfileComponent } from './foreign-profile/foreign-profile.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavigationBarComponent, 
     ProfilesGridComponent, 
     ProfileComponent, 
-    SettingsComponent,],
+    SettingsComponent, 
+    ForeignProfileComponent,],
   imports: [
     CommonModule,
     HomeRoutingModule,

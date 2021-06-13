@@ -19,6 +19,7 @@ export class ProfilesGridComponent implements OnInit {
       (data => this.users = data)
     )
   }
+  
   ngOnInit(): void {
     this.getUsers();
   }

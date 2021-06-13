@@ -67,16 +67,15 @@ export class ProfileComponent implements OnInit {
         (response) => this.getPhones())
       }
 
-      // get user's phones, powinno byc zalezne od id uzytkownika
     getPhones():void {
-    this.phoneService.getPhones().subscribe(
+    this.phoneService.getPhones(this.currentUser).subscribe(
       (response) => this.phones = response)
     }
 
     addPhone(addPhoneForm: NgForm):void {
       console.log(addPhoneForm.value);
       this.phoneService.addPhone(addPhoneForm.value, this.user.id).subscribe(
-        (response) =>this.getPhones())
+        (response) => this.getPhones())
       }
 
 

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Phone } from '../models/phone';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class PhoneService {
   
   constructor(private http:HttpClient) { }
 
-  public getPhones():Observable<Phone[]> {
-    return this.http.get<Phone[]>(`${this.apiServerUrl}/phones`).pipe(
+  public getPhones(userId: number):Observable<Phone[]> {
+    return this.http.get<Phone[]>(`${this.apiServerUrl}/phones/${userId}`).pipe(
         tap(console.log)
     );
 }

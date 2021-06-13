@@ -1,0 +1,42 @@
+
+<body>
+    <div class="profile" *ngIf="user">
+        <div class="user-info" *ngIf="user">
+
+            <div class="card">
+
+                <img *ngIf="user.profileImage" src="{{user.profileImage}}" alt="" class="profile-img">
+                <img *ngIf="!user.profileImage" src="../../../assets/images/default-profile.jpg" alt="..." class="profile-img">
+                <p> Account ID: {{currentUser}}</p>
+                <h2>{{user?.title}} {{user?.name}} {{user?.surname}}</h2>
+            </div>
+
+            <hr>
+            
+            <div class="contact-types">
+                <div class="contacts">
+                    
+                    <p> Phones: </p>
+                    <div class="phones">
+                        <p *ngFor="let phone of phones"> {{phone.phoneNumber}} </p>
+                    </div>
+                </div>
+                
+                <div class="adresses">
+                    <P>Description: </P>
+                    <textarea disabled>{{user.description}}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="videos-bar">
+            <!--  w bazie musze zamienic watch na embed mniej wiecej -->
+            <iframe  src="https://www.youtube.com/embed/50ZvMarcQmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe  src="https://www.youtube.com/embed/50ZvMarcQmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <form>
+                    <p> add</p>
+            </form>
+        </div>
+    </div>
+
+</body>
+
