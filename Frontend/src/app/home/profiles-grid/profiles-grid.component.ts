@@ -27,4 +27,7 @@ export class ProfilesGridComponent implements OnInit {
   onSelect(user: User):void{
     this.router.navigate(['/profile',user.id]);
   }
+  filtrUser():void{
+    return;
+  }
 }

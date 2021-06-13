@@ -2,7 +2,10 @@
 <div class ="searchbar">
     <h1 id="h1-profile">Profiles</h1>
     <form class="form-inline waves-light" mdbWavesEffect>
-        <input class="searchInput" type="text" placeholder="Search">
+        <input class="searchInput" type="text" placeholder="Search by title">
+        <input class="searchInput" type="text" placeholder="Search by name">
+        <input class="searchInput" type="text" placeholder="Search by surname">
+        <button (click)="filtrUser()" class="filtrButton">search</button>
     </form>
 </div>
 
