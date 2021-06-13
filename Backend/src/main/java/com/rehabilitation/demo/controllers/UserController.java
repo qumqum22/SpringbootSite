@@ -1,11 +1,9 @@
 package com.rehabilitation.demo.controllers;
 
-import com.rehabilitation.demo.exception.ResourceNotFoundException;
 import com.rehabilitation.demo.models.Phones;
 import com.rehabilitation.demo.models.UserData;
 import com.rehabilitation.demo.services.PhonesService;
 import com.rehabilitation.demo.services.UserService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -60,8 +58,11 @@ public class UserController {
 
     // User's phones actions.
 
-    @GetMapping("/phones")
-    public List<Phones> allPhones() {return phonesService.getPhones();}
+    @GetMapping("/phones/{user_id}")
+    public List<Phones> allPhones(@PathVariable("user_id") long user_id) {
+        UserData tempUser = userService.getSingleUser(user_id);
+        return phonesService.getPhones(tempUser);
+    }
 
     @DeleteMapping("phones/delete/{id}")
     public void deletePhone(@PathVariable("id") long id)

@@ -1,6 +1,7 @@
 package com.rehabilitation.demo.services;
 
 import com.rehabilitation.demo.models.Phones;
+import com.rehabilitation.demo.models.UserData;
 import com.rehabilitation.demo.repository.PhonesRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +17,12 @@ public class PhonesService {
         this.phonesRepository = phonesRepository;
     }
 
-    public List<Phones> getPhones() {
-        return phonesRepository.findAll();
+    public List<Phones> getPhones(UserData userData) {
+        return phonesRepository.findAllByUserdata(userData);
     }
-
     public void deletePhone(long id) {
         phonesRepository.deleteById(id);
     }
-
     public void addPhone(Phones phone) {
         phonesRepository.save(phone);
     }
