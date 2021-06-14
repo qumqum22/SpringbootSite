@@ -1,6 +1,8 @@
 package com.rehabilitation.demo.services;
 
+import com.rehabilitation.demo.models.Address;
 import com.rehabilitation.demo.models.UserData;
+import com.rehabilitation.demo.repository.AddressRepository;
 import com.rehabilitation.demo.repository.UserDataRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +22,14 @@ public class UserService {
         return userDataRepository.findAll();
     }
 
+    public List<UserData> getUsersByAddress(Address address) {
+        return userDataRepository.findAllByAddress(address);}
+
     public UserData getSingleUser(long id) {
         return userDataRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
     }
+
 
     public boolean save(UserData newUserData) {
         if(!newUserData.getEmail().contains("@"))

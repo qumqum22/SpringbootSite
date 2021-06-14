@@ -28,7 +28,7 @@ public class UserController {
         this.addressService = addressService;
     }
 
-    // getting all expenses
+    // User's actions.
     @GetMapping("/users")
     public List<UserData> all()
     {
@@ -40,6 +40,12 @@ public class UserController {
      public UserData getSingleUser(@PathVariable("id") long id){
         return userService.getSingleUser(id);
      }
+
+     @GetMapping("/users/address/{id}")
+     public List<UserData> getUsersByAddress(@PathVariable("id") long id) {
+         Address tempAddress = addressService.getSingleAddress(id);
+         return userService.getUsersByAddress(tempAddress);}
+
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/register")
@@ -84,9 +90,16 @@ public class UserController {
     }
 
     // User's addresses actions.
+    @GetMapping("/address/{id}")
+    public Address getSingleAddress(@PathVariable("id") long id){
+        return addressService.getSingleAddress(id);
+    }
+
     @GetMapping("/addresses/{user_id}")
     public List<Address> allAddresses(@PathVariable("user_id") long user_id) {
         UserData tempUser = userService.getSingleUser(user_id);
+        //UserData addedUsers = addressService
         return addressService.getAddresses(tempUser);
     }
+
 }
