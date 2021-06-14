@@ -9,7 +9,7 @@ export class CustomHttpInterceptor implements HttpInterceptor {
     intercept(req:HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
     {
         return next.handle(req).pipe(
-            retry(2),
+            retry(1),
             catchError((error:HttpErrorResponse) => {
                 alert(`HTTP error: ${req.url}`);
                 return throwError(error);

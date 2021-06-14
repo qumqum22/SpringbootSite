@@ -20,9 +20,17 @@
                     <div class="phones">
                         <p *ngFor="let phone of phones"> {{phone.phoneNumber}} </p>
                     </div>
+                    <p> Addresses: </p>
+
+                    <div class="addresses">
+                        <p *ngFor="let address of addresses"> 
+                            <a href="#">{{address.city}}, ul.{{address.street}} {{address.number}}, ZIP: {{address.postalCode}} </a>
+                            <!-- <button class="deleteButton" (click)="deletePhone(phone.id)">X</button> -->
+                        </p>
+                    </div>
                 </div>
                 
-                <div class="adresses">
+                <div class="description">
                     <P>Description: </P>
                     <textarea disabled>{{user.description}}</textarea>
                 </div>

@@ -26,14 +26,23 @@
                         <p *ngFor="let phone of phones"> {{phone.phoneNumber}} 
                             <button class="deleteButton" (click)="deletePhone(phone.id)">X</button>
                         </p>
-                    </div>
-                
+                    </div>        
+                            
                     <form #addPhoneForm="ngForm" (ngSubmit)="addPhone(addPhoneForm)" >
                         <div class="addPhone">
                             <input ngModel name="phoneNumber" type="number" placeholder="phone number">
                             <button type="submit" name="add_phone" class="addButton">+</button>
                         </div>
                     </form>
+
+                    <p> Addresses: </p>
+                    <div class="addresses">
+                        <p *ngFor="let address of addresses"> 
+                            <a href="#">{{address.street}}  </a>
+                            <!-- <button class="deleteButton" (click)="deletePhone(phone.id)">X</button> -->
+                        </p>
+                    </div>
+
                 </div>
                 
                 <div class="adresses">

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Address } from 'src/app/models/address';
 import { Phone } from 'src/app/models/phone';
 import { User } from 'src/app/models/user';
+import { AddressService } from 'src/app/services/address.service';
 import { PhoneService } from 'src/app/services/phone.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -16,13 +18,18 @@ export class ForeignProfileComponent implements OnInit {
   id: string | null;
   user: User;
   phones: Phone[];
+  addresses: Address[];
   
-  constructor(private userService: UserService, private phoneService: PhoneService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, 
+              private phoneService: PhoneService, 
+              private addressService: AddressService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.currentUser = +this.route.snapshot.paramMap.get('id')!;
     this.getUser();
     this.getPhones();
+    this.getAddresses();
   }
 
   getUser():void {
@@ -37,4 +44,8 @@ export class ForeignProfileComponent implements OnInit {
     (response) => this.phones = response)
   }
 
+  getAddresses(): void {
+    this.addressService.getAddresses(this.currentUser).subscribe(
+      (response) => this.addresses = response)
+    }
 }

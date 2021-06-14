@@ -40,7 +40,7 @@
             height: 90%;
             width: 45%;
 
-            .contacts, .adresses{
+            .contacts, .description{
                 margin:auto;
                 margin-top: 1em;
                 height: 45%;
@@ -55,8 +55,16 @@
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
                     p{
-                        margin:0;
+                        margin:0;   
                     }
+                }
+                .addresses{
+                    a{
+                        text-decoration: none;
+                        display: inline-block;
+                    }
+                    overflow: auto;
+                    height:10vh;
                 }
             }
 

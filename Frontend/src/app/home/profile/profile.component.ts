@@ -1,10 +1,11 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { PhoneService } from 'src/app/services/phone.service';
+import { AddressService } from 'src/app/services/address.service';
 import { User } from '../../models/user';
 import { Phone} from '../../models/phone';
 import { NgForm } from '@angular/forms';
+import { Address } from 'src/app/models/address';
 
 @Component({
   selector: 'app-profile',
@@ -16,17 +17,22 @@ export class ProfileComponent implements OnInit {
   currentUser = 1;
   user: User;
   phones: Phone[];
+  addresses: Address[];
   titleField: string ="";
   nameField:string = "";
   surnameField: string = "";
   descriptionField: string = "";
 
-    constructor(private userService: UserService, private phoneService: PhoneService) { }
+    constructor(private userService: UserService, 
+                private phoneService: PhoneService,
+                private addressService: AddressService) { }
 
     ngOnInit(): void {
       this.getUser();
       this.getPhones();
+      this.getAddresses();
     }
+
 
     getUser():void {
       this.userService.getUser(this.currentUser).subscribe(
@@ -78,5 +84,9 @@ export class ProfileComponent implements OnInit {
         (response) => this.getPhones())
       }
 
+    getAddresses(): void {
+      this.addressService.getAddresses(this.currentUser).subscribe(
+        (response) => this.addresses = response)
+      }
 
 }

@@ -7,7 +7,7 @@ import { ErrorPageComponent } from '../shared/error-page/error-page.component';
 export const routes: Routes = [
     { path: '', component: LoginComponent }, // default route of the module
     { path: 'register', component: RegisterComponent },
-    {path: '**', component: ErrorPageComponent}
+    //{ path: '**', component: ErrorPageComponent}
 
   ]
   

@@ -17,7 +17,7 @@ const routes: Routes = [
       {path: 'settings', component: SettingsComponent},
       {path: 'profiles', component: ProfilesGridComponent},
       {path: 'profile/:id', component: ForeignProfileComponent},
-      {path: '**', component: ErrorPageComponent}
+      //{path: '**', component: ErrorPageComponent}
     ]
   },
 ];
