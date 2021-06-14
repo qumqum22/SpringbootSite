@@ -1,7 +1,9 @@
 package com.rehabilitation.demo.controllers;
 
+import com.rehabilitation.demo.models.Address;
 import com.rehabilitation.demo.models.Phones;
 import com.rehabilitation.demo.models.UserData;
+import com.rehabilitation.demo.services.AddressService;
 import com.rehabilitation.demo.services.PhonesService;
 import com.rehabilitation.demo.services.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +18,14 @@ public class UserController {
 
     private final UserService userService;
     private final PhonesService phonesService;
+    private final AddressService addressService;
 
-    public UserController(UserService userService, PhonesService phonesService) {
+    public UserController(UserService userService,
+                          PhonesService phonesService,
+                          AddressService addressService) {
         this.userService = userService;
         this.phonesService = phonesService;
+        this.addressService = addressService;
     }
 
     // getting all expenses
@@ -75,5 +81,12 @@ public class UserController {
     {
         Phones phone = new Phones(phoneNumber.getPhoneNumber(), id);
         phonesService.addPhone(phone);
+    }
+
+    // User's addresses actions.
+    @GetMapping("/addresses/{user_id}")
+    public List<Address> allAddresses(@PathVariable("user_id") long user_id) {
+        UserData tempUser = userService.getSingleUser(user_id);
+        return addressService.getAddresses(tempUser);
     }
 }

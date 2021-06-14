@@ -1,3 +1,4 @@
+com\rehabilitation\demo\services\AddressService.class
 com\rehabilitation\demo\repository\UserDataRepository.class
 com\rehabilitation\demo\models\UserData.class
 com\rehabilitation\demo\repository\PhonesRepository.class

@@ -1,7 +1,11 @@
 package com.rehabilitation.demo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Address {
@@ -15,10 +19,13 @@ public class Address {
     private String number;
     private String postalCode;
 
-
-    @ManyToOne
-    @JoinColumn(name="user_id", referencedColumnName="id", nullable = false)
-    private UserData userdata;
+    @JsonBackReference
+    @ManyToMany(fetch = FetchType.LAZY,
+    cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    },mappedBy = "address")
+    private Set<UserData> userdata = new HashSet<>();
 
 
     public Address(){
@@ -70,5 +77,9 @@ public class Address {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public Set<UserData> getUserdata() {
+        return userdata;
     }
 }

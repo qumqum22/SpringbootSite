@@ -1,9 +1,10 @@
 package com.rehabilitation.demo.models;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.rehabilitation.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,6 +22,7 @@ public class UserData {
     private String description;
     private Integer age;
     private String gender;
+    @Column(unique=true)
     private String login;
     private String password;
     private String email;
@@ -32,15 +34,22 @@ public class UserData {
     @OneToMany(mappedBy = "userdata")
     private Set<ExternalContacts> externalContacts;
 
-    @OneToMany(mappedBy = "userdata")
-    private Set<Address> address;
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE})
+
+    @JsonManagedReference
+    @JoinTable(name="user_address",
+    joinColumns =  { @JoinColumn(name= " user_id")},
+    inverseJoinColumns = {@JoinColumn(name = "address_id") })
+    private Set<Address> address = new HashSet<>();
 
     @OneToMany(mappedBy = "userdata")
     private Set<UserRights> userRights;
 
     @OneToMany(mappedBy = "userdata")
     private Set<Videos> videos;
-
 
     public UserData()
     {
@@ -153,4 +162,11 @@ public class UserData {
         this.email = email;
     }
 
+    public Set<ExternalContacts> getExternalContacts() {
+        return externalContacts;
+    }
+
+    public Set<Address> getAddress() {
+        return address;
+    }
 }
