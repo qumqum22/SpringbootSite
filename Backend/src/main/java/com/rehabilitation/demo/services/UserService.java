@@ -2,6 +2,8 @@ package com.rehabilitation.demo.services;
 
 import com.rehabilitation.demo.models.Address;
 import com.rehabilitation.demo.models.UserData;
+import com.rehabilitation.demo.payload.RegisterUserRequest;
+import com.rehabilitation.demo.payload.UpdateUserRequest;
 import com.rehabilitation.demo.repository.AddressRepository;
 import com.rehabilitation.demo.repository.UserDataRepository;
 import org.springframework.stereotype.Service;
@@ -25,43 +27,49 @@ public class UserService {
     public List<UserData> getUsersByAddress(Address address) {
         return userDataRepository.findAllByAddress(address);}
 
-    public UserData getSingleUser(long id)  {
+    public UserData getSingleUser(long id) {
         return userDataRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
     }
 
 
-    public boolean save(UserData newUserData) {
-        if(!newUserData.getEmail().contains("@"))
+    public boolean save(RegisterUserRequest registerUserRequest) {
+        if(!registerUserRequest.getEmail().contains("@"))
             return false;
-        if(!newUserData.getEmail().contains("."))
+        if(!registerUserRequest.getEmail().contains("."))
             return false;
-        if(newUserData.getPassword().length() < 6) {
+        if(registerUserRequest.getPassword().length() < 6) {
             return false;
         }
-        newUserData.setProfileImage(null);
+        UserData newUserData = new UserData(
+                registerUserRequest.getName(),
+                registerUserRequest.getSurname(),
+                null,
+                "",
+                "Default description",
+                null,
+                null,
+                null,
+                registerUserRequest.getPassword(),
+                registerUserRequest.getEmail());
         this.userDataRepository.save(newUserData);
         return true;
     }
 
-    public boolean updateProfile(UserData oldUserData) {
-        UserData updatedUser = userDataRepository.findUserDataById(oldUserData.getId());
+    public boolean updateProfile(long id, UpdateUserRequest oldUserData) {
+        UserData updatedUser = userDataRepository.findUserDataById(id);
         updatedUser.setName(oldUserData.getName());
         updatedUser.setSurname(oldUserData.getSurname());
-        updatedUser.setProfileImage(oldUserData.getProfileImage());
+        //updatedUser.setProfileImage(oldUserData.getProfileImage());
         updatedUser.setTitle(oldUserData.getTitle());
         updatedUser.setDescription(oldUserData.getDescription());
-        updatedUser.setAge(oldUserData.getAge());
-        updatedUser.setGender(oldUserData.getGender());
+        //updatedUser.setAge(oldUserData.getAge());
+        //updatedUser.setGender(oldUserData.getGender());
         userDataRepository.save(updatedUser);
     return true;
     }
 
     public void deleteUser(long id) {
         userDataRepository.deleteById(id);
-    }
-
-    public void deleteAddress(UserData userData, Address address) {
-        userData.getAddress().remove(address);
     }
 }

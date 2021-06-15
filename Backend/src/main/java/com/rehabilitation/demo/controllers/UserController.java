@@ -3,6 +3,9 @@ package com.rehabilitation.demo.controllers;
 import com.rehabilitation.demo.models.Address;
 import com.rehabilitation.demo.models.Phones;
 import com.rehabilitation.demo.models.UserData;
+import com.rehabilitation.demo.payload.AddPhoneRequest;
+import com.rehabilitation.demo.payload.RegisterUserRequest;
+import com.rehabilitation.demo.payload.UpdateUserRequest;
 import com.rehabilitation.demo.services.AddressService;
 import com.rehabilitation.demo.services.PhonesService;
 import com.rehabilitation.demo.services.UserService;
@@ -49,15 +52,16 @@ public class UserController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/register")
-    public boolean newUser(@RequestBody UserData newUserData)
+    public boolean newUser(@RequestBody RegisterUserRequest registerUserRequest)
     {
-        return userService.save(newUserData);
+        System.out.println(registerUserRequest);
+        return userService.save(registerUserRequest);
     }
 
-    @PutMapping("/users/update")
-    public boolean changeData(@RequestBody UserData newUserData)
+    @PutMapping("/users/update/{id}")
+    public boolean changeData(@PathVariable("id") long id, @RequestBody UpdateUserRequest updateUserRequest)
     {
-        return userService.updateProfile(newUserData);
+        return userService.updateProfile(id,updateUserRequest);
     }
 
 
@@ -82,11 +86,14 @@ public class UserController {
         phonesService.deletePhone(id);
     }
 
-    @PostMapping("/phones/add/{id}")
-    public void addPhone(@PathVariable("id") long id, @RequestBody Phones phoneNumber)
+    @PostMapping("/phones/add")
+    public void addPhone(@RequestBody AddPhoneRequest addPhoneRequest)
     {
-        UserData user = userService.getSingleUser(id);
-        Phones phone = new Phones(phoneNumber.getPhoneNumber(), user);
+        System.out.println(addPhoneRequest.getId() + " " +addPhoneRequest.getPhoneNumber());
+        UserData user = userService.getSingleUser(addPhoneRequest.getId());
+        System.out.println(user);
+        Phones phone = new Phones(addPhoneRequest.getPhoneNumber(), user);
+        System.out.println(phone);
         phonesService.addPhone(phone);
     }
 
@@ -105,9 +112,8 @@ public class UserController {
     @DeleteMapping("address/delete/{id}/{user_id}")
     public void deleteAddress(@PathVariable("id") long id, @PathVariable("user_id") long user_id)
     {
-        Address tempAddress = addressService.getSingleAddress(id);
-        UserData tempUser = userService.getSingleUser(user_id);
-        userService.deleteAddress(tempUser, tempAddress);
-        addressService.deleteAddress(id);
+        System.out.println(id + " " + user_id);
+        Address addressToRemove = addressService.getSingleAddress(id);
+        addressService.deleteAddress(user_id, addressToRemove);
     }
 }

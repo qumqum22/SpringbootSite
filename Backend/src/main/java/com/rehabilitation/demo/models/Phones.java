@@ -13,9 +13,9 @@ public class Phones {
     private String phoneNumber;
 
 
-    @JsonBackReference
+   // @JsonBackReference
     @ManyToOne
-    @JoinColumn(name="user_id", referencedColumnName="id", nullable = false)
+    @JoinColumn(name="user_data_id")
     private UserData userdata;
 
     public Phones(){
@@ -25,6 +25,14 @@ public class Phones {
     public Phones(String phoneNumber, UserData userdata) {
         this.phoneNumber = phoneNumber;
         this.userdata = userdata;
+    }
+
+    @Override
+    public String toString() {
+        return "Phones{" +
+                "id=" + id +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 
     public Long getId() {

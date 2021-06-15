@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class UserData {
 
     @Id
@@ -27,13 +27,14 @@ public class UserData {
     private String email;
 
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "userdata")
-    private Set<Phones> phones;
+    //@JsonManagedReference
+    @OneToMany(mappedBy = "userdata",cascade=CascadeType.ALL)
+    private Set<Phones> phones = new HashSet<>();
 
     @OneToMany(mappedBy = "userdata")
     private Set<ExternalContacts> externalContacts;
 
+    @JsonManagedReference
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
             CascadeType.PERSIST,
@@ -68,7 +69,30 @@ public class UserData {
         this.password = password;
         this.email = email;
     }
-
+    public void removeAddress(Address addressToRemove){
+        address.remove(addressToRemove);
+        addressToRemove.getUserdata().remove(this);
+    }
+    @Override
+    public String toString() {
+        return "UserData{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", profileImage='" + profileImage + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", externalContacts=" + externalContacts +
+                ", address=" + address +
+                ", userRights=" + userRights +
+                ", videos=" + videos +
+                '}';
+    }
 
     public Long getId() {
         return id;

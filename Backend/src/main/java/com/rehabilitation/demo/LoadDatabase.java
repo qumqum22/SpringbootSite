@@ -65,7 +65,6 @@ public class LoadDatabase {
         log.info("Preloading " + addressRepository.save(address1));
         log.info("Preloading " + addressRepository.save(address2));
         log.info("Preloading " + addressRepository.save(address3));
-
         };
 
     }

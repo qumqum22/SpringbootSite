@@ -1,5 +1,8 @@
 package com.rehabilitation.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +19,7 @@ public class Address {
     private String number;
     private String postalCode;
 
+    @JsonBackReference
     @ManyToMany(fetch = FetchType.LAZY,
     cascade = {
             CascadeType.PERSIST,
@@ -79,4 +83,12 @@ public class Address {
         return userdata;
     }
 
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                '}';
+    }
 }
