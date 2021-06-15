@@ -1,10 +1,5 @@
 package com.rehabilitation.demo.models;
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,8 +16,6 @@ public class Address {
     private String number;
     private String postalCode;
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    //@JsonBackReference
     @ManyToMany(fetch = FetchType.LAZY,
     cascade = {
             CascadeType.PERSIST,
@@ -85,4 +78,5 @@ public class Address {
     public Set<UserData> getUserdata() {
         return userdata;
     }
+
 }

@@ -1,9 +1,5 @@
 package com.rehabilitation.demo.models;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.rehabilitation.demo.exception.ResourceNotFoundException;
+import com.fasterxml.jackson.annotation.*;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
@@ -11,12 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class UserData {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-
     private String name;
     private String surname;
     @Value(value = "${profileImage:https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg}")
@@ -25,9 +21,9 @@ public class UserData {
     private String description;
     private Integer age;
     private String gender;
-    @Column(unique=true)
     private String login;
     private String password;
+    @Column(unique=true)
     private String email;
 
 
@@ -45,8 +41,6 @@ public class UserData {
     @JoinTable(name="user_address",
     joinColumns =  { @JoinColumn(name= "user_id")},
     inverseJoinColumns = {@JoinColumn(name = "address_id") })
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    //@JsonManagedReference
     private Set<Address> address = new HashSet<>();
 
     @OneToMany(mappedBy = "userdata")
@@ -75,13 +69,7 @@ public class UserData {
         this.email = email;
     }
 
-    public void setPhones(Set<Phones> phones) {
-        this.phones = phones;
-    }
 
-    public void addPhone(Phones phone) {
-        this.phones.add(phone);
-    }
     public Long getId() {
         return id;
     }
@@ -168,6 +156,14 @@ public class UserData {
 
     public Set<ExternalContacts> getExternalContacts() {
         return externalContacts;
+    }
+
+    public void setPhones(Set<Phones> phones) {
+        this.phones = phones;
+    }
+
+    public void addPhone(Phones phone) {
+        this.phones.add(phone);
     }
 
     public Set<Address> getAddress() {

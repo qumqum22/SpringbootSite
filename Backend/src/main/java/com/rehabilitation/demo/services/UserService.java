@@ -25,7 +25,7 @@ public class UserService {
     public List<UserData> getUsersByAddress(Address address) {
         return userDataRepository.findAllByAddress(address);}
 
-    public UserData getSingleUser(long id) {
+    public UserData getSingleUser(long id)  {
         return userDataRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
     }
