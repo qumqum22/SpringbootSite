@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { RegisterUserRequest } from '../models/registerUserRequest';
+import { UpdateUserRequest } from '../models/updateUserRequest';
 import { User } from '../models/user';
 
 @Injectable({
@@ -30,12 +32,12 @@ export class UserService {
         return this.http.get<User>(`${this.apiServerUrl}/users/${id}`);
     }
 
-    public registerUser(user: User):Observable<User> {
+    public registerUser(user: RegisterUserRequest):Observable<User> {
         return this.http.post<User>(`${this.apiServerUrl}/register`, user);
     }
 
-    public updateUser(user: User):Observable<User> {
-        return this.http.put<User>(`${this.apiServerUrl}/users/update`, user);
+    public updateUser(userId: number, updateUserData: UpdateUserRequest):Observable<User> {
+        return this.http.put<User>(`${this.apiServerUrl}/users/update/${userId}`, updateUserData);
     }
 
     public deleteUser(userId: number): Observable<void> {

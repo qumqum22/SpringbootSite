@@ -7,6 +7,7 @@ export interface User {
     description:string;
     age: number;
     gender:string;
+    login:string;
     password:string;
     email: string;
 

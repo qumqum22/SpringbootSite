@@ -4,8 +4,10 @@ import { PhoneService } from 'src/app/services/phone.service';
 import { AddressService } from 'src/app/services/address.service';
 import { User } from '../../models/user';
 import { Phone} from '../../models/phone';
+import { AddPhoneRequest} from '../../models/addPhoneRequest'
 import { NgForm } from '@angular/forms';
 import { Address } from 'src/app/models/address';
+import { UpdateUserRequest } from 'src/app/models/updateUserRequest';
 
 @Component({
   selector: 'app-profile',
@@ -16,6 +18,19 @@ export class ProfileComponent implements OnInit {
 
   currentUser = 1;
   user: User;
+
+  phoneRequest: AddPhoneRequest = {
+    id : 1,
+    phoneNumber:""
+  };
+
+  updateUserRequest: UpdateUserRequest = {
+    name: "",
+    surname: "",
+    title: "",
+    description:""
+  }
+
   phones: Phone[];
   addresses: Address[];
   titleField: string ="";
@@ -53,15 +68,15 @@ export class ProfileComponent implements OnInit {
     }
 
     updateUser():void{
-      this.user.title = this.titleField;
+      this.updateUserRequest.title = this.titleField;
       if(this.nameField != "")
-        this.user.name = this.toTitleCase(this.nameField);
+        this.updateUserRequest.name = this.toTitleCase(this.nameField);
       if(this.surnameField != "")
-        this.user.surname = this.toTitleCase(this.surnameField);
+        this.updateUserRequest.surname = this.toTitleCase(this.surnameField);
       if(this.descriptionField != "")
-        this.user.description = this.descriptionField;
+        this.updateUserRequest.description = this.descriptionField;
 
-      this.userService.updateUser(this.user).subscribe(
+      this.userService.updateUser(this.user.id, this.updateUserRequest).subscribe(
         (response) => {
         this.getPhones();
         alert("Profile updated.")})
@@ -79,8 +94,9 @@ export class ProfileComponent implements OnInit {
     }
 
     addPhone(addPhoneForm: NgForm):void {  
-      console.log(addPhoneForm.value);
-      this.phoneService.addPhone(this.user.id, addPhoneForm.value).subscribe(
+      this.phoneRequest.id = this.user.id;
+      this.phoneRequest.phoneNumber = addPhoneForm.value.phoneNumber;
+      this.phoneService.addPhone(this.phoneRequest).subscribe(
         (response) => this.getPhones())
       }
 

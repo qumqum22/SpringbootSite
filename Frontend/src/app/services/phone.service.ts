@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { AddPhoneRequest } from '../models/addPhoneRequest';
 import { Phone } from '../models/phone';
 
 @Injectable({
@@ -24,7 +25,7 @@ export class PhoneService {
     return this.http.delete<void>(`${this.apiServerUrl}/phones/delete/${phoneId}`);
   }
 
-  public addPhone(user_id:number, phone: Phone ):Observable<Phone> {
-    return this.http.post<Phone>(`${this.apiServerUrl}/phones/add/${user_id}`, phone);
+  public addPhone(phoneRequest: AddPhoneRequest):Observable<Phone> {
+    return this.http.post<Phone>(`${this.apiServerUrl}/phones/add`, phoneRequest);
   }
 }
