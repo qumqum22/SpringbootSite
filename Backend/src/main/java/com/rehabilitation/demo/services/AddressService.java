@@ -16,8 +16,7 @@ public class AddressService {
     private final UserDataRepository userDataRepository;
 
     public AddressService(AddressRepository addressRepository,
-                          UserDataRepository userDataRepository,
-                          UserService userService) {
+                          UserDataRepository userDataRepository) {
         this.addressRepository = addressRepository;
         this.userDataRepository = userDataRepository;
     }
@@ -25,8 +24,6 @@ public class AddressService {
         return addressRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
     }
-
-
 
     public List<Address> getAddresses(UserData userData) {
         return addressRepository.findAllByUserdata(userData);

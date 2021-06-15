@@ -13,7 +13,6 @@ public class Phones {
     private String phoneNumber;
 
 
-   // @JsonBackReference
     @ManyToOne
     @JoinColumn(name="user_data_id")
     private UserData userdata;

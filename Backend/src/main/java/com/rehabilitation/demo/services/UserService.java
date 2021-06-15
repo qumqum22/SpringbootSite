@@ -4,7 +4,6 @@ import com.rehabilitation.demo.models.Address;
 import com.rehabilitation.demo.models.UserData;
 import com.rehabilitation.demo.payload.RegisterUserRequest;
 import com.rehabilitation.demo.payload.UpdateUserRequest;
-import com.rehabilitation.demo.repository.AddressRepository;
 import com.rehabilitation.demo.repository.UserDataRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-        private final UserDataRepository userDataRepository;
+    private final UserDataRepository userDataRepository;
 
     public UserService(UserDataRepository userDataRepository) {
         this.userDataRepository = userDataRepository;
