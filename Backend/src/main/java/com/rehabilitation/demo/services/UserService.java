@@ -60,4 +60,8 @@ public class UserService {
     public void deleteUser(long id) {
         userDataRepository.deleteById(id);
     }
+
+    public void deleteAddress(UserData userData, Address address) {
+        userData.getAddress().remove(address);
+    }
 }

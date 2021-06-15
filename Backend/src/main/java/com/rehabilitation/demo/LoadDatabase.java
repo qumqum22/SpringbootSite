@@ -30,15 +30,15 @@ public class LoadDatabase {
             Address address3 = new Address("Krakow", "Królowej Jadwigi", "11", "32-089, Biały");
 
             //add address references user
-            user1.getAddress().add(address1);
-            user1.getAddress().add(address2);
-            user2.getAddress().add(address2);
-            user2.getAddress().add(address3);
-            //add user references address
-            address1.getUserdata().add(user1);
-            address2.getUserdata().add(user1);
-            address2.getUserdata().add(user2);
-            address3.getUserdata().add(user2);
+//            user1.getAddress().add(address1);
+//            user1.getAddress().add(address2);
+//            user2.getAddress().add(address2);
+//            user2.getAddress().add(address3);
+//            //add user references address
+//            address1.getUserdata().add(user1);
+//            address2.getUserdata().add(user1);
+//            address2.getUserdata().add(user2);
+//            address3.getUserdata().add(user2);
         log.info("Preloading " + userDataRepository.save(user1));
         log.info("Preloading " + userDataRepository.save(user2));
         log.info("Preloading " + userDataRepository.save(new UserData("Michał", "Byczek",null,"dr",
@@ -53,13 +53,13 @@ public class LoadDatabase {
                     "ops",22,"Male","username6","passowordpl", "mail@123")));
             log.info("Preloading " + userDataRepository.save(new UserData("Kinga", "Lepszy",null,null,
                     "ops",22,"Male","username7","passowordpl", "mail@123")));
-        log.info("Preloading " + phonesRepository.save(new Phones("999999999", user1)));
+        log.info("Preloading " + phonesRepository.save(new Phones("931299999", user1)));
         log.info("Preloading " + phonesRepository.save(new Phones("956478659", user1)));
         log.info("Preloading " + phonesRepository.save(new Phones("456478659", user1)));
-        log.info("Preloading " + phonesRepository.save(new Phones("999999999", user1)));
+        log.info("Preloading " + phonesRepository.save(new Phones("996456549", user1)));
         log.info("Preloading " + phonesRepository.save(new Phones("956478659", user2)));
         log.info("Preloading " + phonesRepository.save(new Phones("456478659", user2)));
-        log.info("Preloading " + phonesRepository.save(new Phones("999999999", user2)));
+        log.info("Preloading " + phonesRepository.save(new Phones("456789999", user2)));
         log.info("Preloading " + phonesRepository.save(new Phones("956478659", user2)));
         log.info("Preloading " + phonesRepository.save(new Phones("456478659", user2)));
         log.info("Preloading " + addressRepository.save(address1));

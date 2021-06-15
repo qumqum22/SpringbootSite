@@ -83,9 +83,10 @@ public class UserController {
     }
 
     @PostMapping("/phones/add/{id}")
-    public void addPhone(@PathVariable("id") UserData id, @RequestBody Phones phoneNumber)
+    public void addPhone(@PathVariable("id") long id, @RequestBody Phones phoneNumber)
     {
-        Phones phone = new Phones(phoneNumber.getPhoneNumber(), id);
+        UserData user = userService.getSingleUser(id);
+        Phones phone = new Phones(phoneNumber.getPhoneNumber(), user);
         phonesService.addPhone(phone);
     }
 
@@ -101,5 +102,12 @@ public class UserController {
         //UserData addedUsers = addressService
         return addressService.getAddresses(tempUser);
     }
-
+    @DeleteMapping("address/delete/{id}/{user_id}")
+    public void deleteAddress(@PathVariable("id") long id, @PathVariable("user_id") long user_id)
+    {
+        Address tempAddress = addressService.getSingleAddress(id);
+        UserData tempUser = userService.getSingleUser(user_id);
+        userService.deleteAddress(tempUser, tempAddress);
+        addressService.deleteAddress(id);
+    }
 }

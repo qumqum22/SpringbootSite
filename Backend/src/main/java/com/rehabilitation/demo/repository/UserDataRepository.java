@@ -13,4 +13,6 @@ public interface UserDataRepository extends JpaRepository<UserData, Long> {
     UserData findUserDataById(Long id);
 
     List<UserData> findAllByAddress(Address address);
+
+    void deleteAddressById(long id);
 }

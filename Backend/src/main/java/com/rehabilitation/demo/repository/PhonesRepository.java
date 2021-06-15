@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface PhonesRepository extends JpaRepository<Phones, Long> {
 
+    Phones findPhonesByPhoneNumber(String number);
     List<Phones> findAllByUserdata(UserData userData);
 }

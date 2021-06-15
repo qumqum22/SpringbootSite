@@ -1,4 +1,7 @@
 package com.rehabilitation.demo.models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.rehabilitation.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +31,7 @@ public class UserData {
     private String email;
 
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "userdata")
     private Set<Phones> phones;
 
@@ -38,11 +42,11 @@ public class UserData {
             cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE})
-
-    @JsonManagedReference
     @JoinTable(name="user_address",
-    joinColumns =  { @JoinColumn(name= " user_id")},
+    joinColumns =  { @JoinColumn(name= "user_id")},
     inverseJoinColumns = {@JoinColumn(name = "address_id") })
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    //@JsonManagedReference
     private Set<Address> address = new HashSet<>();
 
     @OneToMany(mappedBy = "userdata")

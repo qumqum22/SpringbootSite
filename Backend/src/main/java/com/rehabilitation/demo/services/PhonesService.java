@@ -24,6 +24,9 @@ public class PhonesService {
         phonesRepository.deleteById(id);
     }
     public void addPhone(Phones phone) {
-        phonesRepository.save(phone);
+        if(phonesRepository.findPhonesByPhoneNumber(phone.getPhoneNumber())== null
+                && phone.getPhoneNumber().length() >= 6
+                && phone.getPhoneNumber().length() <= 12)
+            phonesRepository.save(phone);
     }
 }
