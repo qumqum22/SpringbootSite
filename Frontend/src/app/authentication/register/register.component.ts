@@ -13,13 +13,18 @@ export class RegisterComponent implements OnInit {
   
   registerForm = new FormGroup({
     email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',[Validators.required,Validators.minLength(4)])
-
+    password: new FormControl('',[Validators.required,Validators.minLength(6)]),
+    confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)]),
+    name: new FormControl('',[Validators.required,Validators.minLength(4)]),
+    surname: new FormControl('',[Validators.required,Validators.minLength(4)])
   })
   public users: User[];
 
   get email(){return this.registerForm.get('email')}
   get password(){return this.registerForm.get('password')}
+  get confirmPassword(){return this.registerForm.get('confirmPassword')}
+  get name(){return this.registerForm.get('name')}
+  get surname(){return this.registerForm.get('surname')}
 
   constructor(private userService: UserService, private router:Router) { }
 
@@ -28,9 +33,9 @@ export class RegisterComponent implements OnInit {
     this.userService.registerUser(registerForm.value).subscribe(
       (data => {
         console.log(data);
-        if(data.id >= 1)
+        //if(data.id >= 1)
           this.router.navigateByUrl('/login');
-      }));
+      }))
   }
   
   ngOnInit(): void {

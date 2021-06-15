@@ -1,12 +1,7 @@
 
 <div class ="searchbar">
-    <h1 id="h1-profile">Profiles</h1>
-    <form class="search-form">
-        <input class="searchInput" type="text" placeholder="Search by title">
-        <input class="searchInput" type="text" placeholder="Search by name">
-        <input class="searchInput" type="text" placeholder="Search by surname">
-        <button (click)="filtrUser()" class="filtrButton">search</button>
-    </form>
+    <h1 id="h1-profile">Address</h1>
+    <p>{{address.city}}, ul.{{address.street}} {{address.number}}, ZIP: {{address.postalCode}}</p>
 </div>
 
 <div class ="cards" >
@@ -15,7 +10,7 @@
             <img *ngIf="!user.profileImage" src="../../../assets/images/default-profile.jpg" alt="..." class="profile-img">
             <h2>{{user.title}} {{user.name}} {{user.surname}}</h2>
             <h2>{{user.email}}</h2>
-            <h3>{{user.description}}</h3>
+            <h3><i class="fa fa-phone"></i>{{user.description}}</h3>
             <button class="yellowButton" (click)="onSelect(user)" > Visit me --> </button>
         </div>
 <div>

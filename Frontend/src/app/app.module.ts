@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { CustomHttpInterceptor } from './services/http-interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,8 @@ import { CustomHttpInterceptor } from './services/http-interceptor';
     RouterModule, 
     HomeModule,
     AuthenticationModule,
-    FormsModule
-  ],
+    FormsModule,
+     ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: CustomHttpInterceptor,

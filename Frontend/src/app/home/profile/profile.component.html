@@ -30,7 +30,7 @@
                             
                     <form #addPhoneForm="ngForm" (ngSubmit)="addPhone(addPhoneForm)" >
                         <div class="addPhone">
-                            <input ngModel name="phoneNumber" type="number" placeholder="phone number">
+                            <input ngModel name="phoneNumber" type="number" placeholder="phone number" minlength="6" maxlength="12">
                             <button type="submit" name="add_phone" class="addButton">+</button>
                         </div>
                     </form>
@@ -38,8 +38,8 @@
                     <p> Addresses: </p>
                     <div class="addresses">
                         <p *ngFor="let address of addresses"> 
-                            <a href="#">{{address.street}}  </a>
-                            <!-- <button class="deleteButton" (click)="deletePhone(phone.id)">X</button> -->
+                            {{address.city}}, ul.{{address.street}} {{address.number}}, ZIP: {{address.postalCode}}
+                            <button class="deleteButton" (click)="deleteAddress(address.id, user.id)">X</button>
                         </p>
                     </div>
 

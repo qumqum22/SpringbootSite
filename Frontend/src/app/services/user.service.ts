@@ -11,7 +11,6 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-
     private apiServerUrl = environment.apiBaseUrl;
 
     constructor(private http:HttpClient) {
@@ -22,11 +21,13 @@ export class UserService {
         return this.http.get<User[]>(`${this.apiServerUrl}/users`);
     }
 
+    public getUsersByAddress(id: number):Observable<User[]> {
+        
+        return this.http.get<User[]>(`${this.apiServerUrl}/users/address/${id}`);
+    }
     public getUser(id: number):Observable<User> {
         
-        return this.http.get<User>(`${this.apiServerUrl}/users/${id}`).pipe(
-            tap(console.log)
-        );
+        return this.http.get<User>(`${this.apiServerUrl}/users/${id}`);
     }
 
     public registerUser(user: User):Observable<User> {

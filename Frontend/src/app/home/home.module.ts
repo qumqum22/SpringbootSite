@@ -9,7 +9,7 @@ import { SettingsComponent } from './settings/settings.component';
 import {HomeComponent} from './home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForeignProfileComponent } from './foreign-profile/foreign-profile.component';
-
+import { BuildingComponent } from './building/building.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +18,13 @@ import { ForeignProfileComponent } from './foreign-profile/foreign-profile.compo
     ProfilesGridComponent, 
     ProfileComponent, 
     SettingsComponent, 
-    ForeignProfileComponent,],
+    ForeignProfileComponent, 
+    BuildingComponent,],
   imports: [
     CommonModule,
     HomeRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: []
 })

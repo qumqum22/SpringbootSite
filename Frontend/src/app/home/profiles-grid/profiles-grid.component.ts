@@ -9,11 +9,13 @@ import { Router} from '@angular/router';
 })
 export class ProfilesGridComponent implements OnInit {
 
-  public users: User[] =[];
-
+  users: User[] =[];
+  titleField: string = "";
+  nameField:string = "";
+  surnameField:string = "";
   constructor(private userService: UserService, private router: Router) { }
 
-  public getUsers():void {
+  getUsers():void {
     this.userService.getUsers().subscribe(
       (data => this.users = data)
     )
@@ -22,6 +24,7 @@ export class ProfilesGridComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
   }
+
 
   onSelect(user: User):void{
     this.router.navigate(['/profile',user.id]);

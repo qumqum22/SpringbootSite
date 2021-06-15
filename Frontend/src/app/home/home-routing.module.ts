@@ -8,6 +8,7 @@ import {AuthenticationModule} from './../authentication/authentication.module'
 import { ProfilesGridComponent } from './profiles-grid/profiles-grid.component';
 import { ErrorPageComponent } from '../shared/error-page/error-page.component';
 import { ForeignProfileComponent } from './foreign-profile/foreign-profile.component';
+import { BuildingComponent } from './building/building.component';
 const routes: Routes = [
   {path: 'login', loadChildren: () => AuthenticationModule},
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       {path: 'settings', component: SettingsComponent},
       {path: 'profiles', component: ProfilesGridComponent},
       {path: 'profile/:id', component: ForeignProfileComponent},
+      {path: 'building/:id', component: BuildingComponent},
       //{path: '**', component: ErrorPageComponent}
     ]
   },

@@ -24,7 +24,7 @@ export class PhoneService {
     return this.http.delete<void>(`${this.apiServerUrl}/phones/delete/${phoneId}`);
   }
 
-  public addPhone(phone: Phone, user_id:number):Observable<Phone> {
+  public addPhone(user_id:number, phone: Phone ):Observable<Phone> {
     return this.http.post<Phone>(`${this.apiServerUrl}/phones/add/${user_id}`, phone);
   }
 }

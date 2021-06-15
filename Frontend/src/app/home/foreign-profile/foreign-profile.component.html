@@ -7,7 +7,6 @@
 
                 <img *ngIf="user.profileImage" src="{{user.profileImage}}" alt="" class="profile-img">
                 <img *ngIf="!user.profileImage" src="../../../assets/images/default-profile.jpg" alt="..." class="profile-img">
-                <p> Account ID: {{currentUser}}</p>
                 <h2>{{user?.title}} {{user?.name}} {{user?.surname}}</h2>
             </div>
 
@@ -24,8 +23,8 @@
 
                     <div class="addresses">
                         <p *ngFor="let address of addresses"> 
-                            <a href="#">{{address.city}}, ul.{{address.street}} {{address.number}}, ZIP: {{address.postalCode}} </a>
-                            <!-- <button class="deleteButton" (click)="deletePhone(phone.id)">X</button> -->
+                            {{address.city}}, ul.{{address.street}} {{address.number}}, ZIP: {{address.postalCode}}
+                            <button class="yellowButton" (click)="onSelect(address)" > Visit me --> </button>
                         </p>
                     </div>
                 </div>

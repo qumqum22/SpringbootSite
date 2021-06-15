@@ -16,10 +16,21 @@ export class AddressService {
   
   constructor(private http:HttpClient) { }
 
+  getAddress(id: number):Observable<Address> {
+        
+    return this.http.get<Address>(`${this.apiServerUrl}/address/${id}`).pipe(
+        tap(console.log)
+    );
+}
   getAddresses(userId: number):Observable<Address[]> {
     return this.http.get<Address[]>(`${this.apiServerUrl}/addresses/${userId}`).pipe(
       tap(console.log)
   );
+  }
+
+
+  deleteAddress(addressId: number, userId:number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/address/delete/${addressId}/${userId}`);
   }
 
 }

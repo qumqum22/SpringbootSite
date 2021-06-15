@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
     this.descriptionField = this.user.description;
   }
 
-    private toTitleCase(name: string): string{
+    toTitleCase(name: string): string{
       return `${name[0].toUpperCase()}${name.substr(1).toLowerCase()}`;
     }
 
@@ -78,15 +78,20 @@ export class ProfileComponent implements OnInit {
       (response) => this.phones = response)
     }
 
-    addPhone(addPhoneForm: NgForm):void {
+    addPhone(addPhoneForm: NgForm):void {  
       console.log(addPhoneForm.value);
-      this.phoneService.addPhone(addPhoneForm.value, this.user.id).subscribe(
+      this.phoneService.addPhone(this.user.id, addPhoneForm.value).subscribe(
         (response) => this.getPhones())
       }
 
     getAddresses(): void {
       this.addressService.getAddresses(this.currentUser).subscribe(
         (response) => this.addresses = response)
+      }
+
+    deleteAddress(addressId: number, userId:number):void {
+      this.addressService.deleteAddress(addressId, userId).subscribe(
+        (response) => this.getAddresses())
       }
 
 }
