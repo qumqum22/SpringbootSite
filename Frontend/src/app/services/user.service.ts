@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { RegisterUserRequest } from '../models/registerUserRequest';
 import { UpdateUserRequest } from '../models/updateUserRequest';
