@@ -1,8 +1,10 @@
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\models\Phones.java
+C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\payload\RegisterUserRequest.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\models\UserRights.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\models\Tags.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\payload\AddPhoneRequest.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\controllers\UserController.java
+C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\payload\UpdateUserRequest.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\repository\AddressRepository.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\models\Videos.java
 C:\Users\piotr.gucwa\IdeaProjects\Rehabilitation-site\Backend\src\main\java\com\rehabilitation\demo\services\AddressService.java

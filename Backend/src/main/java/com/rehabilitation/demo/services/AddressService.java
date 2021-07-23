@@ -31,10 +31,8 @@ public class AddressService {
 
     public void deleteAddress(long user_id, Address addressToRemove) {
         UserData userData = userDataRepository.findUserDataById(user_id);
-        System.out.println(userData);
         userData.removeAddress(addressToRemove);
         userDataRepository.save(userData);
-        System.out.println(userData);
     }
     public void addAddress(Address address) {
         addressRepository.save(address);
